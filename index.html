@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Akriva">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#401930">
+<meta name="description" content="Akriva — Fashion & Beauty. Shop sarees, dresses, beauty kits, kids wear and more. Free delivery above ₹999, easy returns, COD available.">
+<meta name="keywords" content="Akriva,fashion,beauty,saree,western wear,kids wear,online shopping,India,UPI,COD">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="google-site-verification" content="HmP05NbEGEmA4WH6CMVl-54-Du3WlveMWWWuK-ieqGw" />
+<link rel="canonical" href="https://akriva787.github.io/akriva-app/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Akriva — Fashion & Beauty">
+<meta property="og:description" content="Shop sarees, dresses, beauty kits, kids wear & more. Free delivery above ₹999, easy returns, COD available.">
+<meta property="og:url" content="https://akriva787.github.io/akriva-app/">
+<meta property="og:site_name" content="Akriva">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Akriva — Fashion & Beauty">
+<meta name="twitter:description" content="Shop sarees, dresses, beauty kits, kids wear & more. Free delivery above ₹999.">
+<link rel="manifest" id="pwaManifest">
+<title>Akriva — Fashion &amp; Beauty Online Shopping India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#0F3460;--gold:#D4AC6E;--ink:#0f0f0f;--muted:#565959;
+  --line:#e7e7e7;--bg:#f0f2f2;--white:#fff;--red:#B12704;--green:#007600;
+  --chat1:#c471ed;--chat2:#f64f59;--bnav-h:60px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden;overscroll-behavior:none}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--bg);
+  display:flex;flex-direction:column;max-width:430px;margin:0 auto;
+  box-shadow:0 0 30px rgba(0,0,0,.25)}
+button{cursor:pointer;font-family:'DM Sans',sans-serif;border:none;background:none}
+a{text-decoration:none}
+.hidden{display:none!important}
+input,select,textarea{font-family:'DM Sans',sans-serif;font-size:14px}
+img{display:block}
+
+/* ───── APP SHELL ───── */
+.site-header{flex-shrink:0;position:relative;z-index:200}
+.bnav{flex-shrink:0;position:relative;z-index:200}
+#appBody{flex:1;overflow:hidden;position:relative}
+.screen{
+  display:none;position:absolute;inset:0;
+  overflow-y:auto;overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+  background:var(--bg);
+}
+.screen.active{display:block}
+
+/* ───── HEADER ───── */
+.site-header{background:var(--plum)}
+.header-top{
+  display:flex;align-items:center;gap:8px;padding:8px 10px 4px;
+}
+.header-logo{
+  font-size:20px;font-weight:700;color:#fff;letter-spacing:-1px;
+  flex-shrink:0;cursor:pointer;
+}
+.header-logo span{color:var(--gold)}
+.header-loc{
+  flex:1;display:flex;align-items:center;gap:3px;cursor:pointer;overflow:hidden;
+}
+.header-loc .loc-label{font-size:11px;color:rgba(255,255,255,.75);white-space:nowrap}
+.header-loc .loc-pin{font-size:12px;color:#fff;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.header-loc .loc-arrow{font-size:10px;color:#fff}
+.hdr-btns{display:flex;gap:4px;flex-shrink:0}
+.hdr-btn{
+  color:#fff;width:36px;height:36px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;position:relative;border-radius:4px;
+}
+.hdr-btn:active{background:rgba(255,255,255,.15)}
+.cart-cnt{
+  position:absolute;top:1px;right:1px;
+  background:var(--gold);color:var(--plum);
+  font-size:8px;font-weight:800;min-width:15px;height:15px;
+  border-radius:99px;display:flex;align-items:center;justify-content:center;padding:0 2px;
+}
+.search-bar{
+  display:flex;align-items:center;
+  background:#fff;border-radius:6px;
+  margin:0 10px 8px;height:40px;overflow:hidden;
+  border:2px solid var(--gold);
+}
+.search-bar .s-icon{padding:0 10px;font-size:18px;color:var(--muted)}
+.search-bar input{
+  flex:1;border:none;outline:none;font-size:14px;background:transparent;height:100%;
+}
+.search-bar .mic{padding:0 10px;font-size:18px;color:var(--muted)}
+
+/* ───── BOTTOM NAV ───── */
+.bnav{
+  background:#fff;border-top:1px solid var(--line);
+  height:var(--bnav-h);display:flex;align-items:stretch;
+}
+.nav-item{
+  flex:1;border:none;background:transparent;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2px;color:var(--muted);font-size:9px;font-weight:600;
+  letter-spacing:.02em;padding-bottom:4px;
+}
+.nav-item .ni{font-size:24px;line-height:1}
+.nav-item.active{color:var(--plum)}
+.nav-item.active .ni{transform:scale(1.1)}
+
+/* ───── SECTION BLOCKS ───── */
+.amz-block{
+  background:#fff;margin-bottom:8px;padding:12px;
+}
+.amz-block-header{
+  display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;
+}
+.amz-block-header h3{font-size:17px;font-weight:700;color:var(--ink)}
+.amz-block-header .see-all{font-size:12px;color:#007185;font-weight:600}
+
+/* ───── PRODUCT CARD (grid) ───── */
+.prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.prod-grid .prod-card{background:#fff}
+.prod-card{
+  display:flex;flex-direction:column;cursor:pointer;
+}
+.prod-card:active{opacity:.9}
+.prod-card .pc-img{
+  width:100%;aspect-ratio:1/1;object-fit:contain;object-position:center;
+  padding:10px;background:#fff;
+}
+.prod-card .pc-body{padding:6px 8px 10px;flex:1;display:flex;flex-direction:column;gap:3px}
+.prod-card .pc-cat{font-size:9px;color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.prod-card .pc-name{font-size:13px;font-weight:600;line-height:1.35;color:var(--ink);flex:1}
+.prod-card .pc-stars{display:flex;align-items:center;gap:4px;font-size:11px}
+.prod-card .stars{color:#c89b4e;font-size:12px;letter-spacing:-1px}
+.prod-card .pc-rc{color:#007185;font-size:11px}
+.prod-card .pc-price-row{display:flex;align-items:baseline;gap:5px;flex-wrap:wrap}
+.prod-card .pc-price{font-size:15px;font-weight:700;color:var(--ink)}
+.prod-card .pc-off{font-size:11px;color:var(--red);font-weight:600}
+.prod-card .pc-mrp{font-size:11px;color:var(--muted)}
+.prod-card .pc-free{font-size:10px;color:var(--green);font-weight:600}
+.prod-card .pc-badge-row{display:flex;gap:5px;flex-wrap:wrap;margin-top:2px}
+.pc-badge{
+  font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;
+  background:var(--plum);color:#fff;letter-spacing:.05em;
+}
+.pc-badge.bs{background:#c45500}
+.pc-badge.new{background:#0066c0;color:#fff}
+.prod-card .add-btn{
+  margin:6px 8px 8px;background:#ffd814;border-radius:20px;
+  padding:6px;font-size:12px;font-weight:700;color:var(--ink);text-align:center;
+}
+.prod-card .add-btn:active{background:#f0c912}
+
+/* ───── HEART on product cards ───── */
+.pc-heart{
+  position:absolute;top:6px;right:6px;
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:#888;
+}
+.pc-heart.saved{color:var(--plum)}
+.pc-img-wrap{position:relative}
+
+/* ───── HORIZONTAL SLIDER ───── */
+.h-scroll{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory}
+.h-scroll::-webkit-scrollbar{display:none}
+.h-scroll .prod-slide{
+  flex:0 0 150px;scroll-snap-align:start;background:#fff;
+  border-right:1px solid var(--line);cursor:pointer;
+}
+.prod-slide:active{opacity:.9}
+.prod-slide img{width:100%;aspect-ratio:1/1;object-fit:contain;padding:8px;background:#fff}
+.prod-slide .ps-body{padding:4px 8px 10px}
+.prod-slide .ps-name{font-size:12px;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:3px}
+.prod-slide .ps-price{font-size:13px;font-weight:700}
+.prod-slide .ps-off{font-size:10px;color:var(--red);font-weight:600}
+
+/* ───── DEAL BANNER ───── */
+.deal-banner{
+  background:linear-gradient(135deg,var(--plum),#6b2046);
+  margin-bottom:8px;padding:14px 14px 0;
+  display:flex;align-items:flex-end;gap:12px;overflow:hidden;position:relative;
+}
+.deal-text{color:#fff;padding-bottom:14px}
+.deal-text .eyebrow{font-size:10px;letter-spacing:.12em;opacity:.75;text-transform:uppercase;margin-bottom:6px}
+.deal-text h2{font-size:22px;font-weight:700;line-height:1.15;margin-bottom:10px}
+.deal-text .deal-cta{
+  display:inline-block;background:var(--gold);color:#fff;
+  padding:8px 18px;border-radius:4px;font-size:13px;font-weight:700;
+}
+.deal-img{width:120px;flex-shrink:0;object-fit:cover;object-position:top;border-radius:8px 8px 0 0;align-self:flex-end}
+
+/* ───── CATEGORY TILES ───── */
+.cat-scroll{display:flex;gap:0;overflow-x:auto;background:#fff;margin-bottom:8px}
+.cat-scroll::-webkit-scrollbar{display:none}
+.cat-tile{
+  flex:0 0 80px;display:flex;flex-direction:column;align-items:center;
+  padding:10px 6px;gap:6px;cursor:pointer;border-right:1px solid var(--line);
+}
+.cat-tile:active{background:#f7f7f7}
+.cat-tile img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:top}
+.cat-tile span{font-size:10px;font-weight:700;text-align:center;color:var(--ink);line-height:1.2}
+
+/* ───── INNER HEADER ───── */
+.inner-header{
+  position:sticky;top:0;z-index:100;
+  background:var(--plum);height:46px;
+  display:flex;align-items:center;gap:8px;padding:0 12px;color:#fff;
+}
+.back-btn{color:#fff;font-size:22px;padding:0;width:30px;height:30px;display:flex;align-items:center;justify-content:center}
+.inner-header h2{font-size:15px;font-weight:700;flex:1}
+
+/* ───── FILTER ROW ───── */
+.filter-row{
+  display:flex;gap:8px;overflow-x:auto;padding:10px 12px;background:#fff;margin-bottom:8px;
+}
+.filter-row::-webkit-scrollbar{display:none}
+.filter-pill{
+  flex:0 0 auto;padding:5px 14px;border-radius:20px;
+  border:1.5px solid var(--line);background:#fff;
+  font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;white-space:nowrap;
+}
+.filter-pill.active{background:var(--plum);color:#fff;border-color:var(--plum)}
+
+/* ───── SEARCH SCREEN ───── */
+.search-screen-box{
+  display:flex;align-items:center;background:#fff;
+  margin:10px 12px;border-radius:6px;height:44px;
+  border:2px solid var(--plum);overflow:hidden;
+}
+.search-screen-box .s-icon{padding:0 10px;font-size:18px;color:var(--muted)}
+.search-screen-box input{flex:1;border:none;outline:none;font-size:14px}
+.search-screen-box button{padding:0 10px;font-size:15px;color:var(--muted)}
+.pop-section{padding:0 12px}
+.pop-section h4{font-size:13px;font-weight:700;margin:10px 0 8px}
+.pop-tags{display:flex;flex-wrap:wrap;gap:8px}
+.pop-tag{
+  padding:6px 14px;border-radius:4px;border:1px solid var(--line);
+  background:#fff;font-size:12px;color:var(--ink);cursor:pointer;
+}
+.result-label{font-size:13px;font-weight:600;color:var(--muted);padding:6px 12px}
+
+/* ───── WISHLIST ───── */
+.wl-tools{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 12px;background:#fff;margin-bottom:8px;
+}
+.wl-stats{font-size:13px;color:var(--muted)}
+.wl-stats b{color:var(--plum);margin-left:8px}
+.wl-all-btn{background:var(--gold);color:#fff;border-radius:4px;padding:8px 14px;font-size:12px;font-weight:700}
+.wl-list{padding:0 12px;display:flex;flex-direction:column;gap:8px;padding-bottom:16px}
+.wl-card{
+  display:flex;gap:10px;background:#fff;border-radius:4px;
+  padding:10px;box-shadow:0 1px 3px rgba(0,0,0,.08);cursor:pointer;
+}
+.wl-card:active{opacity:.9}
+.wl-img{flex:0 0 90px;height:90px;object-fit:contain;object-position:center;border:1px solid var(--line);border-radius:4px;background:#fff;padding:4px}
+.wl-info{flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.wl-cat{font-size:9px;color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.wl-name{font-size:13px;font-weight:600;line-height:1.3;margin:3px 0}
+.wl-price{font-size:15px;font-weight:700;color:var(--ink)}
+.wl-mrp{font-size:11px;color:var(--muted);margin-left:4px;text-decoration:line-through}
+.wl-add{background:#ffd814;border-radius:20px;padding:7px 14px;font-size:12px;font-weight:700;color:var(--ink);border:none;cursor:pointer;margin-top:6px;align-self:flex-start}
+
+/* ───── CART ───── */
+.cart-block{background:#fff;padding:12px;margin-bottom:8px}
+.cart-item{display:flex;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.cart-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.ci-img{flex:0 0 80px;height:80px;object-fit:contain;border:1px solid var(--line);border-radius:4px;background:#fff;padding:4px}
+.ci-info{flex:1}
+.ci-name{font-size:13px;font-weight:600;line-height:1.35;margin-bottom:4px}
+.ci-price{font-size:15px;font-weight:700;margin-bottom:8px}
+.qty-row{display:flex;align-items:center;gap:0}
+.qty-btn{
+  width:28px;height:28px;border:1.5px solid var(--line);background:#f0f2f2;
+  border-radius:50%;font-size:16px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;color:var(--plum);
+}
+.qty-val{width:28px;text-align:center;font-size:13px;font-weight:700}
+.ci-remove{margin-left:10px;font-size:11px;color:#007185;font-weight:600}
+.cart-footer-block{background:#fff;padding:12px;margin-bottom:8px}
+.ship-bar-wrap{margin-bottom:12px}
+.ship-bar{height:4px;background:var(--line);border-radius:2px;margin-bottom:5px}
+.ship-bar span{display:block;height:100%;background:var(--gold);border-radius:2px;transition:width .4s}
+.ship-msg{font-size:11px;color:var(--muted)}
+.ship-msg.ok{color:var(--green);font-weight:600}
+.promo-row{display:flex;gap:8px;margin-bottom:12px}
+.promo-row input{flex:1;border:1.5px solid var(--line);border-radius:4px;padding:8px 10px;font-size:13px}
+.promo-row button{background:var(--plum);color:#fff;border-radius:4px;padding:8px 14px;font-size:13px;font-weight:700}
+.price-box h4{font-size:14px;font-weight:700;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.sum-row{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px;color:var(--muted)}
+.sum-row.total{color:var(--ink);font-weight:700;font-size:15px;border-top:1px solid var(--line);padding-top:8px;margin-top:4px}
+.sum-row.save{color:var(--green)}
+.free{color:var(--green)!important;font-weight:700}
+.checkout-big-btn{
+  display:block;width:100%;background:#ffd814;color:var(--ink);
+  border:none;border-radius:4px;padding:14px;font-size:15px;font-weight:700;
+  text-align:center;margin-top:12px;cursor:pointer;
+}
+.checkout-big-btn:active{background:#f0c912}
+.checkout-big-btn.plum{background:var(--plum);color:#fff}
+
+/* ───── CHECKOUT ───── */
+.checkout-wrap{padding:12px;display:flex;flex-direction:column;gap:0}
+.step-label{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--plum);margin-bottom:10px}
+.field{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+.field span{font-size:11px;font-weight:600;color:var(--muted)}
+.field input,.field textarea,.field select{
+  border:1.5px solid var(--line);border-radius:4px;padding:10px 12px;
+  font-size:14px;outline:none;background:#fff;
+}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--plum)}
+.field input.invalid{border-color:var(--red)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.addr-chip{
+  display:flex;gap:10px;background:#f0f2f2;border-radius:4px;padding:10px;
+  margin-bottom:12px;align-items:flex-start;
+}
+.addr-chip .icon{font-size:18px;color:var(--plum)}
+.addr-chip div{flex:1}
+.addr-chip b{font-size:12px}
+.addr-chip p{font-size:11px;color:var(--muted);margin-top:2px}
+.addr-chip button{font-size:18px;color:var(--plum)}
+.pay-opts{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.pay-opt{
+  display:flex;align-items:center;gap:12px;background:#fff;
+  border:1.5px solid var(--line);border-radius:4px;padding:12px;cursor:pointer;
+}
+.pay-opt.selected{border-color:var(--plum)}
+.pay-icon{font-size:22px;width:34px;text-align:center}
+.pay-text{flex:1;text-align:left}
+.pay-text b{display:block;font-size:13px}
+.pay-text small{font-size:11px;color:var(--muted)}
+.pay-opt i{font-size:14px;color:var(--plum);font-style:normal}
+.ord-sum{background:#f0f2f2;border-radius:4px;padding:12px;margin-bottom:14px}
+.ord-sum p{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--plum);margin-bottom:8px}
+.secure-note{font-size:11px;color:var(--muted);text-align:center;margin-top:10px}
+
+/* ───── ORDER CONFIRM ───── */
+.confirm-box{text-align:center;padding:30px 20px}
+.confirm-mark{width:60px;height:60px;border-radius:50%;background:var(--green);color:#fff;font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.confirm-box b{font-size:18px;font-weight:700;display:block;margin-bottom:8px}
+.confirm-box p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:8px}
+
+/* ───── ORDERS ───── */
+.orders-list{padding:0 12px;padding-bottom:16px}
+.ord-card{background:#fff;border-radius:4px;padding:12px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.ord-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.ord-head b{font-size:12px}
+.ord-head small{font-size:11px;color:var(--muted)}
+.ord-status{font-size:10px;font-weight:700;padding:3px 8px;border-radius:3px;background:#e8f5e9;color:var(--green)}
+.mini-items{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap}
+.mini-it{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted)}
+.mini-it img{width:34px;height:34px;border-radius:3px;object-fit:cover;border:1px solid var(--line)}
+.ord-foot{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}
+.ord-foot span{font-size:13px;font-weight:700;color:var(--ink)}
+
+/* ───── PROFILE ───── */
+.prof-hero{background:var(--plum);padding:16px 14px;display:flex;align-items:center;gap:12px}
+.prof-avatar{width:50px;height:50px;border-radius:50%;background:var(--gold);color:#fff;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.prof-info p{font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,.6)}
+.prof-info h2{font-size:17px;font-weight:700;color:#fff;margin:3px 0}
+.prof-info small{font-size:12px;color:rgba(255,255,255,.7)}
+.sign-out-btn{margin-top:8px;border:1.5px solid rgba(255,255,255,.35);background:transparent;color:#fff;border-radius:4px;padding:5px 12px;font-size:12px;cursor:pointer}
+.sign-in-cta{background:var(--gold);color:#fff;border:none;border-radius:4px;padding:9px 18px;font-size:13px;font-weight:700;margin-top:10px;cursor:pointer}
+.prof-menu{background:#fff;margin-bottom:8px}
+.prof-row{
+  display:flex;align-items:center;gap:12px;padding:14px 14px;
+  border-bottom:1px solid var(--line);cursor:pointer;
+}
+.prof-row:last-child{border-bottom:none}
+.prof-row:active{background:#f7f7f7}
+.prof-row-icon{font-size:20px;width:32px;text-align:center;color:var(--plum)}
+.prof-row div{flex:1}
+.prof-row b{font-size:13px;display:block}
+.prof-row small{font-size:11px;color:var(--muted)}
+.prof-row i{font-size:16px;color:var(--muted);font-style:normal}
+
+/* ───── ADDRESS SCREEN ───── */
+.addr-list{padding:12px;display:flex;flex-direction:column;gap:8px}
+.addr-card{background:#fff;border-radius:4px;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.add-addr-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:calc(100% - 24px);margin:0 12px;background:var(--plum);color:#fff;
+  border:none;border-radius:4px;padding:12px;font-size:14px;font-weight:700;cursor:pointer;
+}
+.addr-form-wrap{padding:12px;background:#fff;margin:10px 12px;border-radius:4px}
+.link-btn{border:none;background:none;color:#007185;font-size:12px;font-weight:600;cursor:pointer;padding:4px 0 0}
+
+/* ───── SUPPORT PAGE ───── */
+.support-wrap{padding:12px;background:#fff;margin:0 12px;border-radius:4px;margin-bottom:8px}
+.support-intro{font-size:13px;color:var(--muted);margin-bottom:12px;line-height:1.6}
+.faq{display:flex;flex-direction:column}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item:last-child{border-bottom:none}
+.faq-item button{width:100%;display:flex;justify-content:space-between;align-items:center;border:none;background:none;padding:13px 0;font-size:13px;font-weight:600;text-align:left;cursor:pointer}
+.faq-item button i{font-size:16px;color:var(--plum);font-style:normal;flex-shrink:0;margin-left:6px}
+.faq-a{font-size:12px;color:var(--muted);padding:0 0 12px;line-height:1.6}
+.contact-list{padding:12px;display:flex;flex-direction:column;gap:8px}
+.contact-btn{
+  display:flex;align-items:center;gap:12px;background:#fff;border-radius:4px;
+  padding:12px;border:none;cursor:pointer;text-align:left;
+  box-shadow:0 1px 3px rgba(0,0,0,.08);
+}
+.contact-btn:active{background:#f7f7f7}
+.contact-btn .cb-icon{font-size:22px;width:34px;text-align:center;color:var(--plum)}
+.contact-btn div{flex:1}
+.contact-btn b{font-size:13px;display:block}
+.contact-btn small{font-size:11px;color:var(--muted)}
+.contact-btn i{font-size:16px;color:var(--muted);font-style:normal}
+
+/* ───── MODAL ───── */
+.modal-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;
+  display:flex;align-items:flex-end;
+}
+.modal-sheet{
+  background:#fff;border-radius:12px 12px 0 0;width:100%;max-height:92vh;
+  overflow-y:auto;animation:slideUp .28s ease;
+}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.modal-close{
+  position:absolute;top:10px;right:12px;
+  width:30px;height:30px;border-radius:50%;
+  background:rgba(0,0,0,.35);color:#fff;border:none;font-size:16px;
+  display:flex;align-items:center;justify-content:center;z-index:10;cursor:pointer;
+}
+.modal-img{
+  width:100%;aspect-ratio:1/1;max-height:52vw;
+  object-fit:contain;object-position:center;
+  padding:16px;background:#fff;position:relative;
+}
+.modal-body{padding:14px 14px 20px}
+.modal-cat{font-size:9px;color:var(--muted);font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.modal-name{font-size:18px;font-weight:700;line-height:1.25;margin:4px 0 6px}
+.modal-rating{font-size:12px;color:#c89b4e;margin-bottom:6px}
+.modal-badge-strip{font-size:10px;color:var(--plum);font-weight:700;background:#f6e6e8;padding:2px 8px;border-radius:3px;display:inline-block;margin-bottom:8px}
+.modal-price{font-size:22px;font-weight:700;margin-bottom:2px}
+.modal-mrp{font-size:12px;color:var(--muted);margin-bottom:10px}
+.modal-off{color:var(--red);font-weight:700;font-size:13px}
+.sizes{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.size-btn{width:44px;height:44px;border-radius:4px;border:1.5px solid var(--line);background:#fff;font-size:13px;font-weight:600;cursor:pointer}
+.size-btn.selected-size{background:var(--plum);color:#fff;border-color:var(--plum)}
+.modal-actions{display:flex;gap:8px}
+.modal-add{flex:1;background:#ffd814;color:var(--ink);border:none;border-radius:4px;padding:13px;font-size:14px;font-weight:700;cursor:pointer}
+.modal-buy{flex:1;background:var(--plum);color:#fff;border:none;border-radius:4px;padding:13px;font-size:14px;font-weight:700;cursor:pointer}
+.modal-desc{font-size:12px;color:var(--muted);line-height:1.7;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+
+/* ───── SUPPORT DRAWER ───── */
+/* ── CHAT FAB ── */
+.chat-fab{
+  position:fixed;bottom:calc(var(--bnav-h) + 14px);right:14px;
+  width:54px;height:54px;border-radius:50%;
+  background:linear-gradient(135deg,var(--chat1),var(--chat2));
+  color:#fff;font-size:26px;border:none;cursor:pointer;
+  box-shadow:0 4px 18px rgba(196,113,237,.5);
+  display:flex;align-items:center;justify-content:center;
+  z-index:600;transition:transform .2s,box-shadow .2s;
+}
+.chat-fab:active{transform:scale(0.9);box-shadow:0 2px 8px rgba(196,113,237,.4);}
+.chat-fab .fab-badge{
+  position:absolute;top:-2px;right:-2px;
+  background:#f64f59;color:#fff;font-size:9px;font-weight:800;
+  min-width:16px;height:16px;border-radius:99px;
+  display:flex;align-items:center;justify-content:center;border:2px solid #fff;
+}
+
+/* ── CHAT WIDGET ── */
+.chat-widget{
+  position:fixed;bottom:calc(var(--bnav-h) + 78px);right:12px;
+  width:min(330px,calc(100vw - 24px));height:470px;
+  background:#fff;border-radius:18px;
+  box-shadow:0 12px 40px rgba(0,0,0,.22),0 2px 8px rgba(0,0,0,.1);
+  display:flex;flex-direction:column;z-index:700;overflow:hidden;
+  transform:scale(0.85) translateY(20px);opacity:0;pointer-events:none;
+  transition:transform .28s cubic-bezier(.34,1.56,.64,1),opacity .2s ease;
+  transform-origin:bottom right;
+}
+.chat-widget.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all;}
+.cw-header{
+  background:linear-gradient(135deg,var(--chat1),var(--chat2));
+  padding:12px 14px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-shrink:0;
+}
+.cw-bot-info{display:flex;align-items:center;gap:10px;}
+.cw-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,.25);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;border:1.5px solid rgba(255,255,255,.4);
+}
+.cw-name{font-size:14px;font-weight:700;color:#fff;margin-bottom:1px;}
+.cw-status{font-size:10px;color:rgba(255,255,255,.8);}
+.cw-status::before{content:'● ';font-size:8px;}
+.cw-close{
+  border:none;background:rgba(255,255,255,.2);color:#fff;
+  width:28px;height:28px;border-radius:50%;font-size:14px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.cw-tabs{display:flex;border-bottom:1px solid var(--line);flex-shrink:0;}
+.cw-tab{
+  flex:1;padding:9px;border:none;background:transparent;
+  font-size:12px;font-weight:600;color:var(--muted);
+  border-bottom:2px solid transparent;cursor:pointer;
+}
+.cw-tab.active{color:var(--chat1);border-bottom-color:var(--chat1);}
+.chat-panel{display:flex;flex-direction:column;flex:1;overflow:hidden;}
+.chat-messages{
+  flex:1;overflow-y:auto;padding:12px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.chat-msg{display:flex;gap:8px;}
+.chat-msg.user{flex-direction:row-reverse;}
+.chat-avatar{
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,var(--chat1),var(--chat2));
+  color:#fff;font-size:13px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.chat-bubble{
+  max-width:80%;background:#f8f0fd;border-radius:12px;
+  padding:9px 13px;font-size:12px;line-height:1.55;
+  border-bottom-left-radius:3px;
+}
+.chat-msg.user .chat-bubble{
+  background:linear-gradient(135deg,var(--chat1),var(--chat2));
+  color:#fff;border-radius:12px;border-bottom-right-radius:3px;
+}
+.chat-chips{display:flex;flex-wrap:wrap;gap:6px;padding:6px 12px 8px;}
+.chat-chip{
+  border:1.5px solid var(--chat1);border-radius:20px;background:#fff;
+  padding:5px 12px;font-size:11px;cursor:pointer;
+  color:var(--chat1);font-weight:600;
+  transition:background .15s,color .15s;
+}
+.chat-chip:active{background:var(--chat1);color:#fff;}
+.cw-input-row{
+  display:flex;gap:8px;padding:10px 12px;
+  border-top:1px solid var(--line);flex-shrink:0;background:#fafafa;
+}
+.cw-input-row input{
+  flex:1;border:1.5px solid #e0d5f5;border-radius:22px;
+  padding:8px 14px;font-size:13px;outline:none;background:#fff;
+}
+.cw-input-row input:focus{border-color:var(--chat1);}
+.cw-input-row button{
+  background:linear-gradient(135deg,var(--chat1),var(--chat2));
+  color:#fff;border:none;border-radius:50%;
+  width:36px;height:36px;font-size:15px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.support-form{padding:14px;overflow-y:auto;}
+.support-form label{display:block;font-size:11px;font-weight:600;color:var(--muted);margin-bottom:4px;margin-top:10px;}
+.support-form select,.support-form input,.support-form textarea{width:100%;border:1.5px solid var(--line);border-radius:8px;padding:9px;font-size:13px;outline:none;}
+.support-form button[type=submit]{width:100%;background:linear-gradient(135deg,var(--chat1),var(--chat2));color:#fff;border:none;border-radius:8px;padding:12px;font-size:14px;font-weight:700;margin-top:14px;cursor:pointer;}
+.support-form button[type=submit]:disabled{opacity:.5;cursor:not-allowed;}
+/* Typing indicator */
+.typing-indicator{display:flex;align-items:center;gap:5px;padding:10px 14px!important;}
+.typing-indicator span{width:7px;height:7px;border-radius:50%;background:var(--chat1);animation:typingBounce 1.2s infinite;}
+.typing-indicator span:nth-child(2){animation-delay:.2s;}
+.typing-indicator span:nth-child(3){animation-delay:.4s;}
+@keyframes typingBounce{0%,60%,100%{transform:translateY(0);opacity:.7;}30%{transform:translateY(-6px);opacity:1;}}
+
+/* ───── SIGNIN ───── */
+.signin-wrap{padding:16px 12px}
+.signin-wrap .intro{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.6}
+
+/* ───── OTP LOGIN ───── */
+.otp-input{
+  letter-spacing:10px;text-align:center;font-size:24px;font-weight:700;
+  font-variant-numeric:tabular-nums;text-transform:uppercase;
+}
+.otp-helper{
+  background:#f0f2f2;border:1.5px dashed var(--line);border-radius:6px;
+  padding:10px;font-size:12px;color:var(--muted);text-align:center;margin-bottom:12px;
+}
+.otp-helper b{color:var(--plum);letter-spacing:2px;font-size:16px}
+.link-btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* ───── EMPTY STATE ───── */
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:50px 24px;text-align:center;gap:8px}
+.empty-state .e-icon{font-size:50px;opacity:.3}
+.empty-state b{font-size:16px}
+.empty-state p{font-size:13px;color:var(--muted);line-height:1.6}
+.go-btn{margin-top:6px;background:var(--plum);color:#fff;border-radius:4px;padding:10px 22px;font-size:13px;font-weight:700;cursor:pointer}
+
+/* ───── TOAST ───── */
+.toast-wrap{position:fixed;bottom:calc(var(--bnav-h)+12px);left:50%;transform:translateX(-50%);z-index:800;pointer-events:none}
+.toast{background:rgba(15,15,15,.9);color:#fff;padding:10px 18px;border-radius:6px;font-size:13px;font-weight:500;white-space:nowrap;backdrop-filter:blur(8px);opacity:1;transition:opacity .3s}
+.toast.fade{opacity:0}
+
+/* ───── MOBILE FIXES ───── */
+
+/* Safe area insets — iPhone notch & home bar */
+body{
+  padding-top:env(safe-area-inset-top);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.bnav{
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.modal-sheet{
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.modal-actions{
+  padding-bottom:env(safe-area-inset-bottom);
+}
+
+/* Touch targets — min 44px for accessibility */
+.filter-pill{
+  min-height:44px;
+}
+.nav-item{
+  min-height:44px;
+}
+.promo-row button{
+  min-height:44px;
+}
+.prod-card .add-btn{
+  min-height:44px;
+  line-height:44px;
+}
+.wl-add{
+  min-height:44px;
+  line-height:44px;
+}
+.pc-heart{
+  min-width:44px;
+  min-height:44px;
+}
+.hdr-btn{
+  min-width:44px;
+  min-height:44px;
+}
+
+/* iOS smooth scroll on horizontal scrollables */
+.cat-scroll{
+  -webkit-overflow-scrolling:touch;
+}
+.h-scroll{
+  -webkit-overflow-scrolling:touch;
+}
+.filter-row{
+  -webkit-overflow-scrolling:touch;
+}
+.pop-tags{
+  -webkit-overflow-scrolling:touch;
+}
+
+/* Body overflow fix for mobile keyboard */
+@supports (-webkit-touch-callout:none){
+  html,body{
+    overflow:auto;
+    overscroll-behavior:auto;
+  }
+  #appBody{
+    overflow:hidden;
+  }
+}
+
+/* Small screen chat widget fix */
+@media(max-height:700px){
+  .chat-widget{
+    height:380px;
+    bottom:calc(var(--bnav-h) + 60px);
+  }
+}
+@media(max-height:600px){
+  .chat-widget{
+    height:300px;
+    bottom:calc(var(--bnav-h) + 50px);
+  }
+}
+
+/* Very small width screens (iPhone SE 320px) */
+@media(max-width:350px){
+  .header-logo{font-size:17px}
+  .search-bar{margin:0 8px 8px;height:36px}
+  .cat-tile{flex:0 0 68px}
+  .cat-tile img{width:44px;height:44px}
+  .deal-text h2{font-size:18px}
+  .prod-grid{grid-template-columns:1fr 1fr}
+}
+
+/* Landscape mode fix */
+@media(orientation:landscape) and (max-height:500px){
+  .chat-widget{height:260px}
+  .deal-banner{max-height:180px;overflow:hidden}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-top">
+    <div class="header-logo" data-action="home">Ak<span>riva</span></div>
+    <div class="header-loc" onclick="toast('Delivery location can be changed at checkout')">
+      <div>
+        <div class="loc-label">Deliver to</div>
+        <div class="loc-pin">Mumbai — 400001 ▾</div>
+      </div>
+    </div>
+    <div class="hdr-btns">
+      <button class="hdr-btn" data-action="cart" aria-label="Bag">
+        🛍
+        <span class="cart-cnt" id="cartCnt" style="display:none">0</span>
+      </button>
+    </div>
+  </div>
+  <div class="search-bar">
+    <span class="s-icon">🔍</span>
+    <input type="search" id="headerSearch" placeholder="Search Akriva Fashion…" autocomplete="off">
+  </div>
+</header>
+
+<!-- APP BODY -->
+<div id="appBody">
+
+  <!-- HOME SCREEN -->
+  <section class="screen active" id="screenHome">
+    <!-- Category Tiles -->
+    <div class="cat-scroll" id="catScroll"></div>
+
+    <!-- Deal Banner -->
+    <div class="deal-banner">
+      <div class="deal-text">
+        <div class="eyebrow" id="heroEyebrow">NEW COLLECTION · SS 2025</div>
+        <h2 id="heroTitle">Dressed in<br>Quiet Luxury</h2>
+        <button class="deal-cta" data-action="explore">Explore →</button>
+      </div>
+      <img class="deal-img" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=200&q=80" alt="Saree" loading="lazy" referrerpolicy="no-referrer" onerror="this.src='https://via.placeholder.com/200x200?text=Deal'">
+    </div>
+
+    <!-- Deal of the Day -->
+    <div class="amz-block" style="padding-bottom:0">
+      <div class="amz-block-header">
+        <h3>Deal of the day</h3>
+        <span class="see-all" data-action="all">See all deals</span>
+      </div>
+      <div class="h-scroll" id="dealSlider"></div>
+    </div>
+
+    <!-- Top Picks -->
+    <div class="amz-block" style="margin-top:0;padding:12px 0 0">
+      <div class="amz-block-header" style="padding:0 12px">
+        <h3>Top picks for you</h3>
+        <span class="see-all" data-action="all">See all</span>
+      </div>
+      <div class="prod-grid" id="topPicksGrid"></div>
+    </div>
+
+    <!-- Trending -->
+    <div class="amz-block" style="padding-bottom:0">
+      <div class="amz-block-header">
+        <h3>Trending now</h3>
+        <span class="see-all" data-action="explore">Explore</span>
+      </div>
+      <div class="h-scroll" id="trendSlider"></div>
+    </div>
+
+    <!-- Atelier mood -->
+    <div class="amz-block">
+      <div class="amz-block-header"><h3>Akriva Atelier — Pick your mood</h3></div>
+      <div style="display:flex;gap:8px;overflow-x:auto">
+        <div class="mood-tile" data-mood="soft" data-label="SOFT WHISPER" data-copy="Draped in Pastel Dreams" style="flex:0 0 105px;border-radius:6px;overflow:hidden;position:relative;aspect-ratio:.75;cursor:pointer;background-size:cover;background-position:center;background-image:url('https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=300&q=80')"><div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:16px 8px 8px;color:#fff;font-size:11px;font-weight:700;text-align:center">Soft</div></div>
+        <div class="mood-tile selected" data-mood="glow" data-label="NEW COLLECTION · SS 2025" data-copy="Dressed in Quiet Luxury" style="flex:0 0 105px;border-radius:6px;overflow:hidden;position:relative;aspect-ratio:.75;cursor:pointer;background-size:cover;background-position:center;background-image:url('https://images.unsplash.com/photo-1609803384069-19f3f04c1b9d?w=300&q=80');box-shadow:0 0 0 2.5px var(--gold)"><div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:16px 8px 8px;color:#fff;font-size:11px;font-weight:700;text-align:center">Glow</div></div>
+        <div class="mood-tile" data-mood="bold" data-label="BOLD STATEMENT" data-copy="Own the Night" style="flex:0 0 105px;border-radius:6px;overflow:hidden;position:relative;aspect-ratio:.75;cursor:pointer;background-size:cover;background-position:center;background-image:url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=300&q=80')"><div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:16px 8px 8px;color:#fff;font-size:11px;font-weight:700;text-align:center">Bold</div></div>
+      </div>
+    </div>
+
+    <!-- More products -->
+    <div class="amz-block" style="padding:12px 0 0">
+      <div class="amz-block-header" style="padding:0 12px">
+        <h3>Based on your interest</h3>
+        <span class="see-all" data-action="all">View all</span>
+      </div>
+      <div class="prod-grid" id="moreGrid"></div>
+    </div>
+
+    <div style="height:16px"></div>
+  </section>
+
+  <!-- EXPLORE SCREEN -->
+  <section class="screen" id="screenExplore">
+    <div class="inner-header">
+      <button class="back-btn" data-action="home">←</button>
+      <h2>Explore</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 10px 16px;grid-auto-rows:160px" id="exploreGrid"></div>
+  </section>
+
+  <!-- CATALOG SCREEN -->
+  <section class="screen" id="screenCatalog">
+    <div class="inner-header">
+      <button class="back-btn" data-action="home">←</button>
+      <h2 id="catalogTitle">All collections</h2>
+    </div>
+    <div class="filter-row" id="filterRow"></div>
+    <p style="font-size:12px;color:var(--muted);padding:0 12px 8px" id="catalogCount"></p>
+    <div class="prod-grid" id="catalogGrid"></div>
+    <div style="height:16px"></div>
+  </section>
+
+  <!-- SEARCH SCREEN -->
+  <section class="screen" id="screenSearch">
+    <div class="inner-header">
+      <button class="back-btn" data-action="home">←</button>
+      <h2>Search</h2>
+    </div>
+    <div class="search-screen-box">
+      <span class="s-icon">🔍</span>
+      <input type="search" id="searchInput" placeholder="Search fashion, beauty…" autocomplete="off">
+      <button id="clearSearch" class="hidden">✕</button>
+    </div>
+    <div id="popularSearches">
+      <div class="pop-section"><h4>Popular searches</h4><div class="pop-tags" id="popularTags"></div></div>
+    </div>
+    <p class="result-label" id="resultLabel">Curated for you</p>
+    <div class="prod-grid" id="searchResults"></div>
+    <div style="height:16px"></div>
+  </section>
+
+  <!-- CART SCREEN -->
+  <section class="screen" id="screenCart">
+    <div class="inner-header">
+      <button class="back-btn" data-action="home">←</button>
+      <h2>Shopping Bag</h2>
+    </div>
+    <div id="cartItems"></div>
+    <div id="cartFooter"></div>
+  </section>
+
+  <!-- CHECKOUT SCREEN -->
+  <section class="screen" id="screenCheckout">
+    <div class="inner-header">
+      <button class="back-btn" id="checkoutBack">←</button>
+      <h2>Secure Checkout</h2>
+    </div>
+    <div id="checkoutContent" class="checkout-wrap"></div>
+  </section>
+
+  <!-- WISHLIST SCREEN -->
+  <section class="screen" id="screenWishlist">
+    <div class="inner-header">
+      <button class="back-btn" data-action="home">←</button>
+      <h2>Saved Loves ♡</h2>
+    </div>
+    <div id="wishlistTools"></div>
+    <div class="wl-list" id="wishlistList"></div>
+  </section>
+
+  <!-- PROFILE SCREEN -->
+  <section class="screen" id="screenProfile">
+    <div id="profileHero" class="prof-hero"></div>
+    <div id="profileMenu"></div>
+  </section>
+
+  <!-- SIGN IN SCREEN -->
+  <section class="screen" id="screenSignin">
+    <div class="inner-header">
+      <button class="back-btn" data-action="profile">←</button>
+      <h2>Sign In / Register</h2>
+    </div>
+    <div class="signin-wrap">
+
+      <!-- STEP 1: PHONE -->
+      <div id="signinStepPhone">
+        <p class="intro">Login with your mobile number. We'll send a one-time code to verify it's you.</p>
+        <div class="field">
+          <span>Mobile number</span>
+          <input id="siPhone" type="tel" inputmode="numeric" placeholder="10-digit number" maxlength="10" autocomplete="tel">
+        </div>
+        <button class="checkout-big-btn plum" id="sendOtpBtn">Send OTP →</button>
+        <p class="secure-note" style="margin-top:10px">🔒 Demo preview: OTP will show on-screen (no real SMS).</p>
+      </div>
+
+      <!-- STEP 2: OTP -->
+      <div id="signinStepOtp" class="hidden">
+        <p class="intro">Enter the 6-digit code sent to <b id="otpSentTo"></b></p>
+        <div class="field">
+          <span>Enter OTP</span>
+          <input class="otp-input" id="otpInput" type="text" inputmode="numeric" placeholder="------" maxlength="6" autocomplete="one-time-code">
+        </div>
+        <div class="otp-helper">Demo OTP: <b id="otpHintVal">• • • • • •</b></div>
+        <div class="field hidden" id="otpNameWrap">
+          <span>Full name (once — to personalise your account)</span>
+          <input id="otpName" type="text" placeholder="Your name">
+        </div>
+        <button class="checkout-big-btn plum" id="verifyOtpBtn">Verify &amp; Continue →</button>
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button class="link-btn" id="changeNumber" style="font-size:13px">← Change number</button>
+          <button class="link-btn" id="resendOtp" style="font-size:13px">Resend OTP</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ORDERS SCREEN -->
+  <section class="screen" id="screenOrders">
+    <div class="inner-header">
+      <button class="back-btn" data-action="profile">←</button>
+      <h2>Your Orders</h2>
+    </div>
+    <div class="orders-list" id="ordersList" style="padding-top:8px;padding-bottom:16px"></div>
+  </section>
+
+  <!-- ADDRESSES SCREEN -->
+  <section class="screen" id="screenAddresses">
+    <div class="inner-header">
+      <button class="back-btn" data-action="profile">←</button>
+      <h2>Saved Addresses</h2>
+    </div>
+    <div class="addr-list" id="addressList"></div>
+    <button class="add-addr-btn" id="addAddrBtn">+ Add new address</button>
+    <div class="addr-form-wrap hidden" id="addrFormWrap"></div>
+    <div style="height:16px"></div>
+  </section>
+
+  <!-- SUPPORT SCREEN -->
+  <section class="screen" id="screenSupport">
+    <div class="inner-header">
+      <button class="back-btn" data-action="profile">←</button>
+      <h2>Help &amp; Support</h2>
+    </div>
+    <div class="support-wrap" id="supportContent" style="margin-top:10px"></div>
+    <div class="contact-list" id="contactList"></div>
+  </section>
+
+  <!-- TOAST -->
+  <div class="toast-wrap" id="toastWrap" style="display:none">
+    <div class="toast" id="toastEl"></div>
+  </div>
+
+</div><!-- /appBody -->
+
+<!-- BOTTOM NAV -->
+<nav class="bnav" id="bnav">
+  <button class="nav-item active" data-nav="home"><span class="ni">⌂</span>Home</button>
+  <button class="nav-item" data-nav="explore"><span class="ni">▦</span>Explore</button>
+  <button class="nav-item" data-nav="search"><span class="ni">🔍</span>Search</button>
+  <button class="nav-item" data-nav="cart"><span class="ni">🛍</span>Bag</button>
+  <button class="nav-item" data-nav="profile"><span class="ni">♙</span>Me</button>
+</nav>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-backdrop hidden" id="productModal">
+  <div class="modal-sheet">
+    <button class="modal-close" data-close-modal>✕</button>
+    <img class="modal-img" id="modalImg" src="" alt="">
+    <div class="modal-body">
+      <p class="modal-cat" id="modalCat"></p>
+      <h2 class="modal-name" id="modalName"></h2>
+      <div class="modal-rating" id="modalRating"></div>
+      <div class="modal-badge-strip" id="modalBadge"></div>
+      <p class="modal-price" id="modalPrice"></p>
+      <p class="modal-mrp" id="modalMrp"></p>
+      <div class="sizes" id="modalSizes"></div>
+      <div class="modal-actions">
+        <button class="modal-add" id="modalAdd">Add to bag</button>
+        <button class="modal-buy" id="modalBuy">Buy now →</button>
+      </div>
+      <p class="modal-desc">Free delivery above ₹999 · Returns within 7 days · Authenticity guaranteed</p>
+    </div>
+  </div>
+</div>
+
+<!-- CHAT FAB -->
+<button class="chat-fab" id="supportTrigger" aria-label="Chat with Akrish">💬</button>
+
+<!-- CHAT WIDGET -->
+<div class="chat-widget" id="chatWidget" aria-hidden="true">
+  <div class="cw-header">
+    <div class="cw-bot-info">
+      <div class="cw-avatar">✨</div>
+      <div>
+        <div class="cw-name">Akrish — Style Assistant</div>
+        <div class="cw-status">Online · replies instantly</div>
+      </div>
+    </div>
+    <button class="cw-close" id="cwClose">✕</button>
+  </div>
+  <div class="cw-tabs">
+    <button class="cw-tab active" data-chat-tab="chat">💬 Chat</button>
+    <button class="cw-tab" data-chat-tab="ticket">🎫 Raise ticket</button>
+  </div>
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-chips" id="chatChips"></div>
+    <div class="cw-input-row">
+      <input type="text" id="chatInput" placeholder="Ask me anything…" autocomplete="off">
+      <button id="chatSend">➤</button>
+    </div>
+  </div>
+  <div class="support-form hidden" id="ticketForm">
+    <form id="akrivaSupportForm" novalidate>
+      <label>Issue category</label>
+      <select id="issueCategory">
+        <option value="">Select category</option>
+        <option>Order &amp; delivery</option>
+        <option>Returns &amp; refunds</option>
+        <option>Payment</option>
+        <option>Product quality</option>
+        <option>Other</option>
+      </select>
+      <label>Your mobile number</label>
+      <input type="tel" id="userPhone" placeholder="10-digit number" maxlength="10">
+      <label>Issue details</label>
+      <textarea id="issueDetails" rows="4" placeholder="Describe your issue (min 10 chars)"></textarea>
+      <button type="submit" id="submitSupportBtn" disabled>Submit ticket</button>
+    </form>
+  </div>
+</div>
+
+<script>
+// ── DATA ──
+const products = [
+  {id:1,name:'Rose Drape Saree',price:2499,old:3299,category:'Women',image:'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=500&q=85',badge:'BESTSELLER'},
+  {id:2,name:'Soft Glam Kit',price:1299,old:1599,category:'Beauty',image:'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=500&q=85',badge:'NEW'},
+  {id:3,name:'Ivory Linen Co-ord',price:2199,old:2799,category:'Women',image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=500&q=85'},
+  {id:4,name:'Classic Resort Shirt',price:1699,old:2199,category:'Men',image:'https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=500&q=85'},
+  {id:5,name:'Little Bloom Dress',price:999,old:1299,category:'Girls',image:'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=500&q=85',badge:'NEW'},
+  {id:6,name:'Weekend Adventure Set',price:1199,old:1499,category:'Boys',image:'https://images.unsplash.com/photo-1519457431-44ccd64a579b?auto=format&fit=crop&w=500&q=85'},
+  {id:7,name:'Velvet Lip Collection',price:799,old:999,category:'Beauty',image:'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=85'},
+  {id:8,name:'Everyday Edit Tote',price:1499,old:1899,category:'Women',image:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=85'},
+];
+const ratings={1:{v:4.4,n:231},2:{v:4.7,n:180},3:{v:4.2,n:96},4:{v:4.1,n:214},5:{v:4.5,n:87},6:{v:4.0,n:64},7:{v:4.6,n:312},8:{v:4.3,n:147}};
+const chatIntents=[
+  {keys:['payment','upi','cod','card','failed'],reply:'We accept UPI, Cards and COD. If money was deducted but order didn\'t go through, it auto-refunds in 3–5 days.'},
+  {keys:['return','exchange','refund','replace'],reply:'Returns are free within 7 days. Go to Me → Your orders → Request return. Refunds settle in 5–7 days.'},
+  {keys:['track','shipped','my order','not delivered'],reply:'Live order status is under Me → Your orders. Every order gets an AKR-XXXXXX id at checkout.'},
+  {keys:['cancel','change address'],reply:'Orders can be cancelled shortly after placing. Raise a ticket or call 1800-419-0000.'},
+  {keys:['size','fit'],reply:'Most Akriva styles run true to size. Tap any product and pick a size (S–XL) before adding to bag.'},
+  {keys:['delivery','shipping','ship','how long'],reply:'Free shipping above ₹999, otherwise ₹99 flat. Standard delivery is 3–5 working days.'},
+  {keys:['promo','coupon','discount','offer','code'],reply:'Try AKRIVA10 for 10% off! Enter it in the bag screen and tap Apply.'},
+  {keys:['human','agent','call','talk'],reply:'Call 1800-419-0000 (9am–9pm), or switch to "Raise a ticket" and we\'ll call back.'},
+  {keys:['hi','hello','hey','namaste','help'],reply:'Hi! I am <b>Akrish</b>, Akriva\'s support bot. Ask about orders, returns, payments or delivery.'},
+  {keys:['thank','thanks','great','awesome'],reply:'Anytime! Anything else I can help with?'},
+];
+
+// ── STATE ──
+let cart=[], savedProducts=new Set(), activeCategory='All', selectedProduct=null;
+let checkout={step:1,address:null,payment:null};
+window.appliedPromo=0;
+const SHIP=99, FREE_OVER=999;
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
+let currentUser=store.get('akriva_user',null);
+
+// ── HELPERS ──
+const escH=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money=v=>`₹${v.toLocaleString('en-IN')}`;
+const pct=(o,n)=>o&&n<o?Math.round((1-n/o)*100):0;
+const starStr=id=>{const r=ratings[id]||{v:4.0,n:120};const f=Math.floor(r.v);const h=r.v-f>=0.4&&r.v-f<0.9;return`${'★'.repeat(f)}${h?'☆':''} <em style="color:#111;font-style:normal;font-weight:700">${r.v.toFixed(1)}</em> <span style="color:#007185">(${r.n.toLocaleString('en-IN')})</span>`;};
+
+// ── TOAST ──
+function toast(msg){const w=document.getElementById('toastWrap'),el=document.getElementById('toastEl');el.textContent=msg;w.style.display='block';el.classList.remove('fade');clearTimeout(window._tt);window._tt=setTimeout(()=>{el.classList.add('fade');setTimeout(()=>{w.style.display='none'},300)},2200);}
+
+// ── CART BADGE ──
+function updateBadge(){const c=cart.reduce((s,i)=>s+i.qty,0);const el=document.getElementById('cartCnt');if(c>0){el.textContent=c;el.style.display='flex';}else el.style.display='none';}
+
+// ── SCREENS ──
+const screenMap={home:'screenHome',explore:'screenExplore',catalog:'screenCatalog',search:'screenSearch',cart:'screenCart',checkout:'screenCheckout',wishlist:'screenWishlist',profile:'screenProfile',signin:'screenSignin',orders:'screenOrders',addresses:'screenAddresses',support:'screenSupport'};
+function showScreen(name,skipNav){
+  Object.values(screenMap).forEach(id=>{const el=document.getElementById(id);if(el)el.classList.remove('active');});
+  const t=document.getElementById(screenMap[name]);if(t){t.classList.add('active');t.scrollTop=0;}
+  if(!skipNav)document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.nav===name));
+}
+
+// ── PRODUCT CARD ──
+function prodCard(p){
+  const saved=savedProducts.has(p.id);
+  const off=pct(p.old,p.price);
+  return`<div class="prod-card" data-pid="${p.id}">
+  <div class="pc-img-wrap">
+    <img class="pc-img" src="${p.image}" alt="${escH(p.name)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.src='https://via.placeholder.com/300x300?text=Akriva'">
+    <button class="pc-heart${saved?' saved':''}" data-heart="${p.id}">${saved?'♥':'♡'}</button>
+  </div>
+  <div class="pc-body">
+    <div class="pc-cat">${p.category}</div>
+    <div class="pc-name">${escH(p.name)}</div>
+    <div class="pc-stars">${starStr(p.id)}</div>
+    <div class="pc-price-row">
+      <span class="pc-price">${money(p.price)}</span>
+      ${off?`<span class="pc-off">${off}% off</span>`:''}
+    </div>
+    ${p.old?`<div class="pc-mrp">M.R.P.: <del>${money(p.old)}</del></div>`:''}
+    <div class="pc-free">✓ Free delivery over ₹999</div>
+    ${p.badge?`<div class="pc-badge-row"><span class="pc-badge ${p.badge==='BESTSELLER'?'bs':'new'}">${p.badge}</span></div>`:''}
+  </div>
+  <div class="add-btn" data-add="${p.id}">Add to bag</div>
+</div>`;
+}
+
+function slideCard(p){
+  const off=pct(p.old,p.price);
+  return`<div class="prod-slide" data-pid="${p.id}">
+  <img src="${p.image}" alt="${escH(p.name)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.src='https://via.placeholder.com/200x200?text=Akriva'">
+  <div class="ps-body">
+    <div class="ps-name">${escH(p.name)}</div>
+    <div class="ps-price">${money(p.price)} <span class="ps-off">${off?off+'% off':''}</span></div>
+  </div>
+</div>`;
+}
+
+function emptyState(icon,bold,sub,btn=''){return`<div class="empty-state"><div class="e-icon">${icon}</div><b>${bold}</b><p>${sub}</p>${btn}</div>`;}
+
+// ── HOME ──
+function renderHome(){
+  const cats=[
+    {label:'Women',img:products[0].image},{label:'Men',img:products[3].image},
+    {label:'Girls',img:products[4].image},{label:'Boys',img:products[5].image},
+    {label:'Beauty',img:products[1].image},{label:'All',img:'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=200&q=80'}
+  ];
+  document.getElementById('catScroll').innerHTML=cats.map(c=>`<div class="cat-tile" data-cat="${c.label}"><img src="${c.img}" alt="${c.label}" loading="lazy" referrerpolicy="no-referrer" onerror="this.src='https://via.placeholder.com/52x52?text=${c.label}'"><span>${c.label}</span></div>`).join('');
+  const deals=[...products.filter(p=>p.badge),...products.filter(p=>!p.badge).slice(0,3)];
+  document.getElementById('dealSlider').innerHTML=deals.map(slideCard).join('');
+  document.getElementById('topPicksGrid').innerHTML=[1,3,2,4].map(id=>products.find(p=>p.id===id)).filter(Boolean).map(prodCard).join('');
+  document.getElementById('trendSlider').innerHTML=[4,1,8,3,7,2].map(id=>products.find(p=>p.id===id)).filter(Boolean).map(slideCard).join('');
+  document.getElementById('moreGrid').innerHTML=[5,6,7,8].map(id=>products.find(p=>p.id===id)).filter(Boolean).map(prodCard).join('');
+}
+
+// ── EXPLORE ──
+function renderExplore(){
+  const cards=[
+    `<div class="explore-card tall" data-lookbook style="border-radius:8px;overflow:hidden;position:relative;cursor:pointer;background:#ccc">
+      <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=400&q=80" alt="Lookbook" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+      <div class="card-overlay" style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.65));padding:20px 10px 10px"><h4 style="color:#fff;font-size:12px;font-weight:700">Summer Resort Lookbook</h4><span style="color:var(--gold);font-size:10px">Explore all 16 pieces</span></div>
+    </div>`,
+    ...products.slice(0,7).map(p=>`<div class="explore-card" data-pid="${p.id}" style="border-radius:8px;overflow:hidden;position:relative;cursor:pointer;background:#ccc">
+      <img src="${p.image}" alt="${escH(p.name)}" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover" onerror="this.src='https://via.placeholder.com/200x200?text=Akriva'">
+      <div class="card-overlay" style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.65));padding:16px 8px 8px"><h4 style="color:#fff;font-size:12px;font-weight:700">${escH(p.name)}</h4><span style="color:var(--gold);font-size:10px">${money(p.price)}${p.badge?` · ${p.badge}`:''}</span></div>
+    </div>`)
+  ];
+  document.getElementById('exploreGrid').innerHTML=cards.join('');
+}
+
+// ── CATALOG ──
+function renderCatalog(){
+  const cats=['All','Women','Men','Girls','Boys','Beauty'];
+  document.getElementById('filterRow').innerHTML=cats.map(c=>`<button class="filter-pill${c===activeCategory?' active':''}" data-filter="${c}">${c}</button>`).join('');
+  const disp=activeCategory==='All'?products:products.filter(p=>p.category===activeCategory);
+  document.getElementById('catalogTitle').textContent=activeCategory==='All'?'All collections':`${activeCategory}'s collection`;
+  document.getElementById('catalogCount').textContent=`${disp.length} result${disp.length!==1?'s':''}`;
+  document.getElementById('catalogGrid').innerHTML=disp.length?disp.map(prodCard).join(''):emptyState('👗','No items found','Try another category.');
+}
+
+// ── SEARCH ──
+const popularTerms=['Saree','Dress','Beauty','Men','Kurta','Tote','Shirt','Kids'];
+function renderSearch(q=''){
+  const norm=q.trim().toLowerCase();
+  const matches=norm?products.filter(p=>`${p.name} ${p.category}`.toLowerCase().includes(norm)):products;
+  const pop=document.getElementById('popularSearches');if(pop)pop.classList.toggle('hidden',Boolean(norm));
+  document.getElementById('resultLabel').textContent=norm?`${matches.length} result${matches.length!==1?'s':''} for "${q.trim()}"`:' Curated for you';
+  document.getElementById('searchResults').innerHTML=matches.length?matches.map(prodCard).join(''):emptyState('🔍','No results','Try a different search term.');
+  document.getElementById('clearSearch').classList.toggle('hidden',!norm);
+}
+function initSearch(){
+  document.getElementById('popularTags').innerHTML=popularTerms.map(t=>`<button class="pop-tag" data-term="${t}">${t}</button>`).join('');
+  renderSearch(document.getElementById('searchInput').value);
+}
+
+// ── CART ──
+function cartTotals(){const sub=cart.reduce((s,i)=>s+i.price*i.qty,0);const ship=sub===0||sub>=FREE_OVER?0:SHIP;const disc=window.appliedPromo||0;return{sub,ship,disc,total:sub-disc+ship};}
+function renderCart(){
+  const items=document.getElementById('cartItems');
+  const footer=document.getElementById('cartFooter');
+  if(!cart.length){items.innerHTML=emptyState('🛍','Your bag is empty','Add your Akriva favourites here.','<button class="go-btn" data-action="home">Start shopping</button>');footer.innerHTML='';return;}
+  items.innerHTML=`<div class="cart-block">${cart.map(item=>`<div class="cart-item">
+    <img class="ci-img" src="${item.image}" alt="${escH(item.name)}" loading="lazy">
+    <div class="ci-info">
+      <div class="ci-name">${escH(item.name)}</div>
+      <div class="ci-price">${money(item.price*item.qty)}</div>
+      <div class="qty-row">
+        <button class="qty-btn" data-qty="${item.id}" data-ch="-1">−</button>
+        <span class="qty-val">${item.qty}</span>
+        <button class="qty-btn" data-qty="${item.id}" data-ch="1">+</button>
+        <button class="ci-remove" data-qty="${item.id}" data-ch="remove">Delete</button>
+      </div>
+    </div>
+  </div>`).join('')}</div>`;
+  const {sub,ship,disc,total}=cartTotals();
+  const pctShip=Math.min(100,Math.round(sub/FREE_OVER*100));
+  const toGo=FREE_OVER-sub;
+  footer.innerHTML=`<div class="cart-footer-block">
+    <div class="ship-bar-wrap">${toGo>0?`<div class="ship-bar"><span style="width:${pctShip}%"></span></div><p class="ship-msg">Add <b>${money(toGo)}</b> more for <b>FREE delivery</b></p>`:`<div class="ship-bar"><span style="width:100%;background:#007600"></span></div><p class="ship-msg ok">Your order qualifies for FREE Delivery!</p>`}</div>
+    <div class="promo-row"><input id="promoInput" type="text" placeholder="Enter promo code (try AKRIVA10)"><button data-promo>Apply</button></div>
+    <div class="price-box">
+      <h4>Price Details</h4>
+      <div class="sum-row"><span>Subtotal (${cart.length} item${cart.length!==1?'s':''})</span><span>${money(sub)}</span></div>
+      <div class="sum-row"><span>Delivery</span><span>${ship?money(ship):'<span class="free">FREE</span>'}</span></div>
+      ${disc?`<div class="sum-row save"><span>Promo discount</span><span>− ${money(disc)}</span></div>`:''}
+      <div class="sum-row total"><span>Total Amount</span><span>${money(total)}</span></div>
+    </div>
+    <button class="checkout-big-btn" data-goto-checkout>Proceed to Checkout (${cart.length} item${cart.length!==1?'s':''})</button>
+    <p class="secure-note" style="margin-top:8px">🔒 Safe and Secure Payments · Easy Returns</p>
+  </div>`;
+}
+
+// ── CHECKOUT ──
+function renderCheckout(){
+  const c=document.getElementById('checkoutContent');
+  if(checkout.step===1){
+    const a=checkout.address||{};
+    c.innerHTML=`<p class="step-label">STEP 1 OF 2 — DELIVERY ADDRESS</p>
+    <form id="addrForm" novalidate>
+      <div class="field"><span>Full name</span><input id="addrName" type="text" value="${escH(a.name||'')}" placeholder="Your full name" autocomplete="name"></div>
+      <div class="field"><span>Mobile number</span><input id="addrPhone" type="tel" value="${escH(a.phone||'')}" placeholder="10-digit number" maxlength="10"></div>
+      <div class="field"><span>Address</span><textarea id="addrAddress" rows="2" placeholder="House no., building, street, landmark">${escH(a.address||'')}</textarea></div>
+      <div class="field-row">
+        <div class="field"><span>City</span><input id="addrCity" value="${escH(a.city||'')}" placeholder="City/Town"></div>
+        <div class="field"><span>Pincode</span><input id="addrPin" value="${escH(a.pin||'')}" placeholder="6-digit" maxlength="6" inputmode="numeric"></div>
+      </div>
+      <button class="checkout-big-btn plum" type="submit">Continue to Payment →</button>
+    </form>`;
+  } else if(checkout.step===2){
+    const a=checkout.address;
+    const pays=[{id:'cod',icon:'₹',name:'Cash on Delivery',note:'Pay ₹ when your order arrives'},{id:'upi',icon:'⌘',name:'UPI / QR',note:'GPay · PhonePe · Paytm · BHIM'},{id:'card',icon:'💳',name:'Credit / Debit Card',note:'Visa · Mastercard · RuPay'}];
+    const {sub,ship,disc,total}=cartTotals();
+    c.innerHTML=`<p class="step-label">STEP 2 OF 2 — PAYMENT</p>
+    <div class="addr-chip"><span class="icon">⌖</span><div><b>${escH(a.name)} · ${escH(a.phone)}</b><p>${escH(a.address)}, ${escH(a.city)} — ${escH(a.pin)}</p></div><button data-edit-addr>✎</button></div>
+    <div class="pay-opts">${pays.map(p=>`<button class="pay-opt${checkout.payment===p.id?' selected':''}" data-pay="${p.id}"><span class="pay-icon">${p.icon}</span><span class="pay-text"><b>${p.name}</b><small>${p.note}</small></span><i>${checkout.payment===p.id?'●':'○'}</i></button>`).join('')}</div>
+    <div class="ord-sum"><p>ORDER SUMMARY</p>
+      <div class="sum-row"><span>Items</span><span>${money(sub)}</span></div>
+      ${disc?`<div class="sum-row save"><span>Promo discount</span><span>−${money(disc)}</span></div>`:''}
+      <div class="sum-row"><span>Delivery</span><span>${ship?money(ship):'FREE'}</span></div>
+      <div class="sum-row total"><span>Order Total</span><span>${money(total)}</span></div>
+    </div>
+    <button class="checkout-big-btn" data-place-order>Place your order →</button>
+    <p class="secure-note">By placing your order you agree to Akriva's Terms &amp; Conditions</p>`;
+  }
+}
+
+function validateAddr(){
+  const name=document.getElementById('addrName').value.trim();
+  const phone=document.getElementById('addrPhone').value.trim();
+  const address=document.getElementById('addrAddress').value.trim();
+  const city=document.getElementById('addrCity').value.trim();
+  const pin=document.getElementById('addrPin').value.trim();
+  if(!name){toast('Please enter your full name');return;}
+  if(!/^[6-9]\d{9}$/.test(phone)){toast('Enter a valid 10-digit mobile number');return;}
+  if(!address){toast('Please enter your address');return;}
+  if(!city){toast('Please enter your city');return;}
+  if(!/^\d{6}$/.test(pin)){toast('Enter a valid 6-digit pincode');return;}
+  checkout.address={name,phone,address,city,pin};checkout.step=2;renderCheckout();
+}
+
+function placeOrder(){
+  const{total}=cartTotals();
+  const orderId='AKR-'+Math.floor(100000+Math.random()*900000);
+  const order={id:orderId,date:Date.now(),items:cart.map(i=>({name:i.name,image:i.image,price:i.price,qty:i.qty})),total,paymentName:checkout.payment==='cod'?'Cash on Delivery':checkout.payment==='upi'?'UPI':'Card',status:'Confirmed',address:checkout.address};
+  const orders=store.get('akriva_orders',[]);orders.unshift(order);store.set('akriva_orders',orders);
+  const addrs=store.get('akriva_addresses',[]);const a=checkout.address;
+  if(!addrs.some(x=>x.phone===a.phone&&x.address===a.address)){addrs.push(a);store.set('akriva_addresses',addrs);}
+  checkout.step=0;cart=[];window.appliedPromo=0;updateBadge();
+  document.getElementById('checkoutContent').innerHTML=`<div class="confirm-box">
+    <div class="confirm-mark">✓</div>
+    <b>Order Placed!</b>
+    <p>Thank you for shopping with Akriva.<br>Your order <strong>#${orderId}</strong> of <strong>${money(total)}</strong> is confirmed.</p>
+    <p style="background:#f0f2f2;border-radius:4px;padding:10px;font-size:12px;color:var(--muted)">Payment: ${order.paymentName}</p>
+    <p>We'll send updates to your mobile at every step.</p>
+    <button class="checkout-big-btn" style="margin-top:16px" data-action="home">Continue Shopping →</button>
+  </div>`;
+}
+
+// ── WISHLIST ──
+function renderWishlist(){
+  const saved=products.filter(p=>savedProducts.has(p.id));
+  const tools=document.getElementById('wishlistTools');
+  if(saved.length){const total=saved.reduce((s,p)=>s+p.price,0);tools.innerHTML=`<div class="wl-tools"><div class="wl-stats">${saved.length} piece${saved.length!==1?'s':''} loved<b>${money(total)}</b></div><button class="wl-all-btn" data-wish-all>Add all to bag</button></div>`;}else tools.innerHTML='';
+  document.getElementById('wishlistList').innerHTML=saved.length?saved.map(p=>`<div class="wl-card" data-pid="${p.id}">
+    <img class="wl-img" src="${p.image}" alt="${escH(p.name)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.src='https://via.placeholder.com/120x120?text=Akriva'">
+    <div class="wl-info">
+      <div class="wl-cat">${p.category}</div>
+      <div class="wl-name">${escH(p.name)}</div>
+      <div><span class="wl-price">${money(p.price)}</span>${p.old?`<span class="wl-mrp">${money(p.old)}</span>`:''}</div>
+      <button class="wl-add" data-wish-add="${p.id}">Add to bag</button>
+    </div>
+  </div>`).join(''):emptyState('♡','Your wishlist is empty','Tap ♡ on any product to save it here.');
+}
+
+// ── PROFILE ──
+function renderProfile(){
+  const hero=document.getElementById('profileHero');
+  if(currentUser){hero.innerHTML=`<div class="prof-avatar">${escH(currentUser.name.charAt(0).toUpperCase())}</div><div class="prof-info"><p>WELCOME BACK</p><h2>${escH(currentUser.name)}</h2><small>${currentUser.phone?'☏ '+escH(currentUser.phone):''}</small><br><button class="sign-out-btn" data-sign-out>Sign out</button></div>`;}
+  else{hero.innerHTML=`<div class="prof-avatar">A</div><div class="prof-info"><p>WELCOME TO AKRIVA</p><h2>Sign in to your account</h2><button class="sign-in-cta" data-action="signin">Sign in / Create account ›</button></div>`;}
+  document.getElementById('profileMenu').innerHTML=`<div class="prof-menu">
+    <div class="prof-row" data-profile="orders"><span class="prof-row-icon">📦</span><div><b>Your Orders</b><small>Track, return or reorder</small></div><i>›</i></div>
+    <div class="prof-row" data-profile="wishlist"><span class="prof-row-icon">♡</span><div><b>Saved Loves</b><small>Your wishlist</small></div><i>›</i></div>
+    <div class="prof-row" data-profile="addresses"><span class="prof-row-icon">⌖</span><div><b>Delivery Addresses</b><small>Manage saved addresses</small></div><i>›</i></div>
+    <div class="prof-row" data-profile="support"><span class="prof-row-icon">💬</span><div><b>Help &amp; Support</b><small>FAQs, contact us</small></div><i>›</i></div>
+  </div>`;
+}
+
+// ── ORDERS ──
+function renderOrders(){
+  const orders=store.get('akriva_orders',[]).sort((a,b)=>b.date-a.date);
+  document.getElementById('ordersList').innerHTML=orders.length?orders.map(o=>`<div class="ord-card">
+    <div class="ord-head"><div><b>#${o.id}</b><br><small>${new Date(o.date).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'})} · ${o.paymentName}</small></div><span class="ord-status">${o.status}</span></div>
+    <div class="mini-items">${o.items.slice(0,2).map(i=>`<div class="mini-it"><img src="${i.image}" alt="${escH(i.name)}" loading="lazy"><span>${escH(i.name)} ×${i.qty}</span></div>`).join('')}${o.items.length>2?`<span style="font-size:11px;color:var(--muted)">+${o.items.length-2} more</span>`:''}</div>
+    <div class="ord-foot"><span>${money(o.total)}</span><small>${escH(o.address.city)}, ${o.address.pin}</small></div>
+  </div>`).join(''):emptyState('📦','No orders yet','Your orders will appear here after checkout.');
+}
+
+// ── ADDRESSES ──
+function renderAddresses(){
+  const addrs=store.get('akriva_addresses',[]);
+  document.getElementById('addressList').innerHTML=addrs.length?addrs.map((a,i)=>`<div class="addr-card">
+    <div class="addr-chip"><span class="icon">⌖</span><div><b>${escH(a.name)} · ${escH(a.phone)}</b><p>${escH(a.address)}, ${escH(a.city)} — ${a.pin}</p></div></div>
+    <button class="link-btn" data-rm-addr="${i}">Remove</button>
+  </div>`).join(''):emptyState('⌖','No saved addresses','Addresses you use at checkout appear here.');
+}
+
+// ── SUPPORT PAGE ──
+function renderSupportPage(){
+  const faqs=[
+    ['How do I return or exchange an item?','You have 7 days from delivery. Go to Your Orders → Request return. Free pickup arranged.'],
+    ['When will my order be delivered?','Orders ship in 24 hours and arrive in 3–5 working days.'],
+    ['What payment methods are accepted?','UPI (GPay, PhonePe, Paytm), credit/debit cards, and Cash on Delivery.'],
+    ['Is Cash on Delivery available?','Yes — with ₹99 delivery fee for orders below ₹999.'],
+    ['How do I track my order?','Open Me → Your Orders for live status updates.'],
+  ];
+  document.getElementById('supportContent').innerHTML=`<p class="support-intro">We\'re here to help. Browse FAQs below or reach out to our team.</p>
+    <div class="faq">${faqs.map((f,i)=>`<div class="faq-item"><button data-faq="${i}">${f[0]}<i>+</i></button><p class="faq-a hidden">${f[1]}</p></div>`).join('')}</div>`;
+  document.getElementById('contactList').innerHTML=`<div class="contact-list">
+    <button class="contact-btn" data-contact="call"><span class="cb-icon">☏</span><div><b>Call us</b><small>1800-419-0000 · 9am–9pm</small></div><i>›</i></button>
+    <button class="contact-btn" data-contact="whatsapp"><span class="cb-icon">✆</span><div><b>WhatsApp us</b><small>Chat with our stylists</small></div><i>›</i></button>
+    <button class="contact-btn" data-contact="email"><span class="cb-icon">✉</span><div><b>Email us</b><small>care@akriva.in</small></div><i>›</i></button>
+  </div>`;
+}
+
+// ── PRODUCT MODAL ──
+function openProduct(id){
+  selectedProduct=products.find(p=>p.id===Number(id));if(!selectedProduct)return;
+  const off=pct(selectedProduct.old,selectedProduct.price);
+  document.getElementById('modalImg').src=selectedProduct.image;
+  document.getElementById('modalImg').alt=selectedProduct.name;
+  document.getElementById('modalCat').textContent=selectedProduct.category.toUpperCase();
+  document.getElementById('modalName').textContent=selectedProduct.name;
+  document.getElementById('modalRating').innerHTML=`${starStr(selectedProduct.id)}`;
+  document.getElementById('modalBadge').textContent=selectedProduct.badge?`${selectedProduct.badge} · Akriva Choice`:'Akriva Choice';
+  document.getElementById('modalBadge').style.display=selectedProduct.badge?'inline-block':'none';
+  document.getElementById('modalPrice').textContent=money(selectedProduct.price);
+  document.getElementById('modalMrp').innerHTML=selectedProduct.old?`M.R.P.: <del>${money(selectedProduct.old)}</del> <span class="modal-off">(${off}% off)</span>`:'';
+  document.getElementById('modalSizes').innerHTML=['XS','S','M','L','XL'].map(s=>`<button class="size-btn" data-size="${s}">${s}</button>`).join('');
+  document.getElementById('productModal').classList.remove('hidden');
+}
+
+function addToCart(product){
+  const ex=cart.find(x=>x.id===product.id);if(ex)ex.qty+=1;else cart.push({...product,qty:1});
+  updateBadge();toast(`${product.name} added to your bag`);
+}
+
+// ── CHAT ──
+let chatSeeded=false;
+const chatQuickChips=['Track my order','Return & refund','Delivery time','Promo codes','Talk to a human'];
+function botReply(raw){
+  const t=raw.toLowerCase();const tokens=new Set(t.split(/\W+/).filter(Boolean));
+  for(const intent of chatIntents){if(intent.keys.some(k=>k.includes(' ')?t.includes(k):tokens.has(k)))return intent.reply;}
+  return 'I\'m still learning! I can help with orders, returns, payments and delivery. Switch to "Raise a ticket" for detailed issues.';
+}
+function appendChat(text,from,asHtml=false){
+  const wrap=document.getElementById('chatMessages');
+  const div=document.createElement('div');div.className=`chat-msg ${from}`;
+  div.innerHTML=from==='bot'?`<div class="chat-avatar">A</div><div class="chat-bubble">${asHtml?text:escH(text)}</div>`:`<div class="chat-bubble">${asHtml?text:escH(text)}</div>`;
+  wrap.appendChild(div);wrap.scrollTop=wrap.scrollHeight;
+}
+function sendChat(text){appendChat(text,'user');setTimeout(()=>appendChat(botReply(text),'bot',true),300);}
+function showTyping(){
+  const wrap=document.getElementById('chatMessages');
+  const d=document.createElement('div');d.className='chat-msg bot';d.id='typingMsg';
+  d.innerHTML=`<div class="chat-avatar">✨</div><div class="chat-bubble typing-indicator"><span></span><span></span><span></span></div>`;
+  wrap.appendChild(d);wrap.scrollTop=wrap.scrollHeight;
+}
+function removeTyping(){const t=document.getElementById('typingMsg');if(t)t.remove();}
+function seedChat(){
+  if(chatSeeded)return;chatSeeded=true;
+  const wrap=document.getElementById('chatMessages');
+  showTyping();
+  setTimeout(()=>{
+    removeTyping();
+    appendChat('Namaste! 👋 Welcome to <b>Akriva Fashion</b>! Glad you\'re here 🌸','bot',true);
+    showTyping();
+    setTimeout(()=>{
+      removeTyping();
+      appendChat('I\'m <b>Akrish</b>, your personal style assistant ✨<br>How can I help you today?','bot',true);
+      document.getElementById('chatChips').innerHTML=chatQuickChips.map(c=>`<button class="chat-chip" data-chip="${escH(c)}">${escH(c)}</button>`).join('');
+    },900);
+  },750);
+}
+
+// ── HEADER SEARCH ──
+document.getElementById('headerSearch').addEventListener('input',e=>{
+  if(e.target.value.trim()){document.getElementById('searchInput').value=e.target.value;initSearch();showScreen('search');}
+});
+document.getElementById('headerSearch').addEventListener('focus',()=>{initSearch();showScreen('search');setTimeout(()=>document.getElementById('searchInput').focus(),100);});
+
+// ── EVENTS ──
+document.addEventListener('click',e=>{
+  // Support drawer
+  if(e.target.closest('#supportTrigger')){const w=document.getElementById('chatWidget');w.classList.toggle('open');w.setAttribute('aria-hidden',!w.classList.contains('open'));if(w.classList.contains('open')){seedChat();setTimeout(()=>document.getElementById('chatInput').focus(),300);}return;}
+  if(e.target.closest('#cwClose')){const w=document.getElementById('chatWidget');w.classList.remove('open');w.setAttribute('aria-hidden','true');return;}
+  const chatTab=e.target.closest('[data-chat-tab]');
+  if(chatTab){document.querySelectorAll('.cw-tab').forEach(t=>t.classList.toggle('active',t===chatTab));const isChat=chatTab.dataset.chatTab==='chat';document.getElementById('chatPanel').classList.toggle('hidden',!isChat);document.getElementById('ticketForm').classList.toggle('hidden',isChat);if(isChat){seedChat();document.getElementById('chatInput').focus();}return;}
+  const chip=e.target.closest('[data-chip]');if(chip){sendChat(chip.dataset.chip);return;}
+  if(e.target.closest('#chatSend')){const inp=document.getElementById('chatInput');const t=inp.value.trim();if(t){sendChat(t);inp.value='';}return;}
+
+  // Modal close
+  if(e.target.closest('[data-close-modal]')||e.target.id==='productModal'){document.getElementById('productModal').classList.add('hidden');return;}
+
+  // Heart
+  const heart=e.target.closest('[data-heart]');
+  if(heart){e.preventDefault();e.stopPropagation();const id=Number(heart.dataset.heart);if(savedProducts.has(id)){savedProducts.delete(id);toast('Removed from wishlist');}else{savedProducts.add(id);toast('Saved to wishlist ♡');}document.querySelectorAll(`[data-heart="${id}"]`).forEach(b=>{const s=savedProducts.has(id);b.classList.toggle('saved',s);b.textContent=s?'♥':'♡';});if(document.getElementById('screenWishlist').classList.contains('active'))renderWishlist();return;}
+
+  // Add to bag from card
+  const addBtn=e.target.closest('[data-add]');
+  if(addBtn){e.stopPropagation();const p=products.find(x=>x.id===Number(addBtn.dataset.add));if(p)addToCart(p);return;}
+
+  // Product open
+  const pid=e.target.closest('[data-pid]')?.dataset.pid;
+  if(pid&&!e.target.closest('[data-heart]')&&!e.target.closest('[data-add]')&&!e.target.closest('[data-wish-add]')){openProduct(pid);return;}
+
+  // Modal add/buy
+  if(e.target.closest('#modalAdd')){if(selectedProduct)addToCart(selectedProduct);document.getElementById('productModal').classList.add('hidden');return;}
+  if(e.target.closest('#modalBuy')){if(selectedProduct)addToCart(selectedProduct);document.getElementById('productModal').classList.add('hidden');checkout.step=1;checkout.payment=null;renderCheckout();showScreen('checkout',true);return;}
+
+  // Size
+  const sz=e.target.closest('[data-size]');if(sz){document.querySelectorAll('[data-size]').forEach(b=>b.classList.remove('selected-size'));sz.classList.add('selected-size');return;}
+
+  // Category tiles
+  const cat=e.target.closest('[data-cat]');if(cat){activeCategory=cat.dataset.cat;renderCatalog();showScreen('catalog',true);document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));return;}
+
+  // Filters
+  const filter=e.target.closest('[data-filter]');if(filter){activeCategory=filter.dataset.filter;renderCatalog();return;}
+
+  // Story (same as cat)
+  const story=e.target.closest('[data-story]');if(story){activeCategory=story.dataset.story;renderCatalog();showScreen('catalog',true);document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));return;}
+
+  // Lookbook
+  if(e.target.closest('[data-lookbook]')){activeCategory='All';renderCatalog();showScreen('catalog',true);return;}
+
+  // Wishlist all
+  if(e.target.closest('[data-wish-all]')){products.filter(p=>savedProducts.has(p.id)).forEach(p=>addToCart(p));toast('All saved pieces added to bag');renderCart();showScreen('cart',true);return;}
+
+  // Wishlist add one
+  const wishAdd=e.target.closest('[data-wish-add]');if(wishAdd){addToCart(products.find(p=>p.id===Number(wishAdd.dataset.wishAdd)));return;}
+
+  // Cart qty
+  const qty=e.target.closest('[data-qty]');if(qty){const id=Number(qty.dataset.qty);const ch=qty.dataset.ch;const item=cart.find(x=>x.id===id);if(!item)return;if(ch==='remove'||ch==='-1'&&item.qty===1)cart=cart.filter(x=>x.id!==id);else item.qty+=Number(ch);updateBadge();renderCart();return;}
+
+  // Promo
+  if(e.target.closest('[data-promo]')){const code=(document.getElementById('promoInput')?.value||'').trim().toUpperCase();if(code==='AKRIVA10'){const s=cart.reduce((a,i)=>a+i.price*i.qty,0);window.appliedPromo=Math.round(s*.10);renderCart();toast('AKRIVA10 applied — 10% off! 🎉');}else toast('Invalid promo code');return;}
+
+  // Checkout flow
+  if(e.target.closest('[data-goto-checkout]')){if(!cart.length){toast('Your bag is empty');return;}checkout.step=1;checkout.payment=null;renderCheckout();showScreen('checkout',true);return;}
+  if(e.target.closest('[data-edit-addr]')){checkout.step=1;renderCheckout();return;}
+  const pay=e.target.closest('[data-pay]');if(pay){checkout.payment=pay.dataset.pay;renderCheckout();return;}
+  if(e.target.closest('[data-place-order]')){if(!checkout.payment){toast('Please select a payment method');return;}placeOrder();return;}
+  if(e.target.closest('#checkoutBack')){renderCart();showScreen('cart',true);return;}
+
+  // Search
+  const term=e.target.closest('[data-term]');if(term){const inp=document.getElementById('searchInput');inp.value=term.dataset.term;renderSearch(term.dataset.term);inp.focus();return;}
+  if(e.target.closest('#clearSearch')){const inp=document.getElementById('searchInput');inp.value='';renderSearch();inp.focus();return;}
+
+  // Profile rows
+  const prof=e.target.closest('[data-profile]');if(prof){const p=prof.dataset.profile;
+    if(p==='orders'){renderOrders();showScreen('orders',true);}
+    else if(p==='wishlist'){renderWishlist();showScreen('wishlist',true);}
+    else if(p==='addresses'){renderAddresses();showScreen('addresses',true);}
+    else if(p==='support'){renderSupportPage();showScreen('support',true);}
+    return;}
+
+  // Sign out
+  if(e.target.closest('[data-sign-out]')){currentUser=null;store.set('akriva_user',null);toast('Signed out');renderProfile();return;}
+
+  // Add address
+  if(e.target.closest('#addAddrBtn')){
+    const w=document.getElementById('addrFormWrap');w.classList.remove('hidden');
+    w.innerHTML=`<div class="checkout-wrap"><p class="step-label">ADD DELIVERY ADDRESS</p>
+      <form id="newAddrForm" novalidate>
+        <div class="field"><span>Full name</span><input id="naName" type="text" placeholder="Full name"></div>
+        <div class="field"><span>Mobile number</span><input id="naPhone" type="tel" placeholder="10-digit" maxlength="10"></div>
+        <div class="field"><span>Address</span><textarea id="naAddress" rows="2" placeholder="House, street, landmark"></textarea></div>
+        <div class="field-row">
+          <div class="field"><span>City</span><input id="naCity" placeholder="City"></div>
+          <div class="field"><span>Pincode</span><input id="naPin" placeholder="6-digit" maxlength="6" inputmode="numeric"></div>
+        </div>
+        <button class="checkout-big-btn plum" data-save-addr>Save Address →</button>
+      </form></div>`;
+    w.scrollIntoView({behavior:'smooth',block:'nearest'});return;}
+
+  if(e.target.closest('[data-save-addr]')){
+    const name=document.getElementById('naName')?.value.trim();const phone=document.getElementById('naPhone')?.value.trim();
+    const address=document.getElementById('naAddress')?.value.trim();const city=document.getElementById('naCity')?.value.trim();const pin=document.getElementById('naPin')?.value.trim();
+    if(!name||!/^[6-9]\d{9}$/.test(phone)||!address||!city||!/^\d{6}$/.test(pin)){toast('Please fill all fields correctly');return;}
+    const addrs=store.get('akriva_addresses',[]);addrs.push({name,phone,address,city,pin});store.set('akriva_addresses',addrs);
+    toast('Address saved');renderAddresses();document.getElementById('addrFormWrap').classList.add('hidden');return;}
+
+  const rmAddr=e.target.closest('[data-rm-addr]');if(rmAddr){const addrs=store.get('akriva_addresses',[]);addrs.splice(Number(rmAddr.dataset.rmAddr),1);store.set('akriva_addresses',addrs);toast('Address removed');renderAddresses();return;}
+
+  // FAQ
+  const faq=e.target.closest('[data-faq]');if(faq){const item=faq.closest('.faq-item');const ans=item.querySelector('.faq-a');ans.classList.toggle('hidden');faq.querySelector('i').textContent=ans.classList.contains('hidden')?'+':'−';return;}
+
+  // Contact
+  const contact=e.target.closest('[data-contact]');if(contact){const m={call:'Calling Akriva at 1800-419-0000…',whatsapp:'Opening WhatsApp with your stylist…',email:'Email us at care@akriva.in'};toast(m[contact.dataset.contact]);return;}
+
+  // Mood
+  const mood=e.target.closest('[data-mood]');if(mood){document.querySelectorAll('[data-mood]').forEach(m=>{m.style.boxShadow=''});mood.style.boxShadow='0 0 0 2.5px var(--gold)';document.getElementById('heroEyebrow').textContent=mood.dataset.label;document.getElementById('heroTitle').textContent=mood.dataset.copy;toast('Mood updated ✨');return;}
+
+  // data-action
+  const action=e.target.closest('[data-action]')?.dataset.action;if(!action)return;
+  if(action==='home')showScreen('home');
+  else if(action==='explore'){renderExplore();showScreen('explore');}
+  else if(action==='search'){initSearch();showScreen('search');}
+  else if(action==='cart'){renderCart();showScreen('cart');}
+  else if(action==='wishlist'){renderWishlist();showScreen('wishlist');}
+  else if(action==='profile'){renderProfile();showScreen('profile');}
+  else if(action==='signin')showScreen('signin',true);
+  else if(action==='all'){activeCategory='All';renderCatalog();showScreen('catalog',true);}
+});
+
+// Bottom nav
+document.getElementById('bnav').addEventListener('click',e=>{
+  const btn=e.target.closest('[data-nav]');if(!btn)return;
+  const nav=btn.dataset.nav;
+  if(nav==='home')showScreen('home');
+  else if(nav==='explore'){renderExplore();showScreen('explore');}
+  else if(nav==='search'){initSearch();showScreen('search');}
+  else if(nav==='cart'){renderCart();showScreen('cart');}
+  else if(nav==='profile'){renderProfile();showScreen('profile');}
+  document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b===btn));
+});
+
+// Forms
+document.addEventListener('submit',e=>{
+  if(e.target.id==='addrForm'){e.preventDefault();validateAddr();return;}
+  if(e.target.id==='akrivaSupportForm'){e.preventDefault();toast('Ticket submitted — our team will call you back.');const cw=document.getElementById('chatWidget');cw.classList.remove('open');cw.setAttribute('aria-hidden','true');e.target.reset();document.getElementById('submitSupportBtn').disabled=true;return;}
+});
+
+document.getElementById('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter'){const t=e.target.value.trim();if(t){sendChat(t);e.target.value='';}e.preventDefault();}});
+document.getElementById('searchInput').addEventListener('input',e=>renderSearch(e.target.value));
+
+function validateTicket(){const ready=document.getElementById('issueCategory').value!==''&&document.getElementById('userPhone').value.length===10&&document.getElementById('issueDetails').value.trim().length>=10;document.getElementById('submitSupportBtn').disabled=!ready;}
+document.getElementById('userPhone').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'');validateTicket();});
+document.getElementById('issueCategory').addEventListener('change',validateTicket);
+document.getElementById('issueDetails').addEventListener('input',validateTicket);
+
+// PWA
+try{const m={name:'Akriva Fashion',short_name:'Akriva',display:'standalone',theme_color:'#401930',background_color:'#fff',start_url:'.',icons:[{src:'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=192&h=192&fit=crop',sizes:'192x192',type:'image/png'}]};document.getElementById('pwaManifest').href=URL.createObjectURL(new Blob([JSON.stringify(m)],{type:'application/json'}));}catch(e){}
+
+// Init
+renderHome();
+updateBadge();
+
+// ── PHONE OTP LOGIN ──
+let pendingOtp=null,pendingPhone='';
+function showSigninStep(n){
+  document.getElementById('signinStepPhone').classList.toggle('hidden',n!==1);
+  document.getElementById('signinStepOtp').classList.toggle('hidden',n!==2);
+  if(n===2&&pendingPhone){
+    const p=pendingPhone;
+    document.getElementById('otpSentTo').textContent='+91 '+p.slice(0,5)+' '+p.slice(5);
+    document.getElementById('otpNameWrap').classList.toggle('hidden',!!(store.get('akriva_profiles',{})[p]));
+  }
+}
+function sendOtp(){
+  const p=document.getElementById('siPhone').value.trim();
+  if(!/^[6-9]\d{9}$/.test(p)){toast('Enter a valid 10-digit mobile number');return;}
+  pendingPhone=p;
+  pendingOtp=String(Math.floor(100000+Math.random()*900000));
+  document.getElementById('otpInput').value='';
+  document.getElementById('otpHintVal').textContent=pendingOtp;
+  showSigninStep(2);
+  toast('OTP sent! 📲');
+  otpCountdown(30);
+}
+function verifyOtp(){
+  const v=document.getElementById('otpInput').value.trim();
+  if(v.length!==6){toast('Enter the 6-digit OTP');return;}
+  if(v!==pendingOtp){toast('Incorrect OTP — check the demo code');return;}
+  const profs=store.get('akriva_profiles',{});
+  const existing=profs[pendingPhone]||{};
+  const name=document.getElementById('otpName').value.trim()||existing.name||'Member';
+  profs[pendingPhone]={name,email:existing.email||''};
+  store.set('akriva_profiles',profs);
+  currentUser={name,phone:pendingPhone,email:existing.email||''};
+  store.set('akriva_user',currentUser);
+  toast(`Welcome to Akriva, ${name}! 🎉`);
+  document.getElementById('otpInput').value='';
+  document.getElementById('otpName').value='';
+  pendingOtp=null;pendingPhone='';
+  document.getElementById('siPhone').value='';
+  document.getElementById('otpHintVal').textContent='• • • • • •';
+  showSigninStep(1);
+  renderProfile();showScreen('profile');
+}
+function otpCountdown(sec){
+  const b=document.getElementById('resendOtp');b.disabled=true;
+  const tick=()=>{sec--;b.textContent=sec>0?`Resend OTP (${sec}s)`:'Resend OTP';if(sec<=0){b.disabled=false;b.textContent='Resend OTP';clearInterval(b._iv);}};
+  clearInterval(b._iv);tick();b._iv=setInterval(tick,1000);
+}
+(function(){
+  const $=document.getElementById.bind(document);
+  $('sendOtpBtn').addEventListener('click',()=>{sendOtp();$('siPhone').blur();setTimeout(()=>$('otpInput').focus(),120);});
+  $('verifyOtpBtn').addEventListener('click',verifyOtp);
+  $('resendOtp').addEventListener('click',sendOtp);
+  $('changeNumber').addEventListener('click',()=>showSigninStep(1));
+  $('otpInput').addEventListener('input',e=>{
+    e.target.value=e.target.value.replace(/\D/g,'').slice(0,6);
+    if(e.target.value.length===6){e.target.blur();}
+  });
+  $('otpInput').addEventListener('keydown',e=>{if(e.key==='Enter')verifyOtp();});
+  $('siPhone').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'').slice(0,10);});
+  $('siPhone').addEventListener('keydown',e=>{if(e.key==='Enter')sendOtp();});
+})();
+
+// ── MOBILE KEYBOARD HANDLER ──
+if(window.visualViewport){
+  let _lastVH=window.innerHeight;
+  window.visualViewport.addEventListener('resize',()=>{
+    const vh=window.visualViewport.height;
+    const diff=_lastVH-vh;
+    // Keyboard opened (height dropped by more than 150px)
+    const chatW=document.getElementById('chatWidget');
+    if(chatW&&chatW.classList.contains('open')){
+      if(diff>150){
+        chatW.style.bottom=`${diff+12}px`;
+        chatW.style.transition='bottom .25s ease';
+      }else{
+        chatW.style.bottom=`calc(var(--bnav-h) + 78px)`;
+      }
+    }
+    // Fix search input visibility
+    const searchInp=document.getElementById('searchInput');
+    if(searchInp&&document.activeElement===searchInp){
+      const screens=document.querySelectorAll('.screen.active');
+      screens.forEach(s=>{s.style.overflowY=diff>150?'hidden':'auto';});
+    }
+  });
+  window.visualViewport.addEventListener('scroll',()=>{
+    // Prevent viewport scroll on iOS when keyboard is open
+    if(window.visualViewport.offsetTop>0){
+      document.body.style.transform=`translateY(-${window.visualViewport.offsetTop}px)`;
+    }else{
+      document.body.style.transform='';
+    }
+  });
+}
+
+// Prevent zoom on input focus (double-tap) while keeping pinch zoom
+document.querySelectorAll('input,textarea,select').forEach(el=>{
+  el.addEventListener('touchend',e=>{
+    // Allow normal focus, prevent double-tap zoom
+    if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'){
+      e.preventDefault();
+      e.target.focus();
+    }
+  },{passive:false});
+});
+</script>
+</body>
+</html>
