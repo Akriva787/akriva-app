@@ -614,6 +614,9 @@ body{
 }
 
 /* Touch targets — min 44px for accessibility */
+input,select,textarea,button,a{
+  touch-action:manipulation;
+}
 .filter-pill{
   min-height:44px;
 }
@@ -1154,13 +1157,27 @@ function renderCatalog(){
 
 // ── SEARCH ──
 const popularTerms=['Saree','Dress','Beauty','Men','Kurta','Tote','Shirt','Kids'];
+const searchKeywords={
+  1:'saree women festive ethnic drape kurta',
+  2:'glam beauty makeup kit cosmetics gift party',
+  3:'co-ord kurta women linen ethnic top set',
+  4:'shirt men resort casual formal shirt',
+  5:'dress girls kids party frock cotton',
+  6:'boys kids set adventure casual outfit',
+  7:'lipstick lips beauty makeup collection gift',
+  8:'tote bag women handbag everyday carry'
+};
 function renderSearch(q=''){
-  const norm=q.trim().toLowerCase();
-  const matches=norm?products.filter(p=>`${p.name} ${p.category}`.toLowerCase().includes(norm)):products;
-  const pop=document.getElementById('popularSearches');if(pop)pop.classList.toggle('hidden',Boolean(norm));
-  document.getElementById('resultLabel').textContent=norm?`${matches.length} result${matches.length!==1?'s':''} for "${q.trim()}"`:' Curated for you';
-  document.getElementById('searchResults').innerHTML=matches.length?matches.map(prodCard).join(''):emptyState('🔍','No results','Try a different search term.');
-  document.getElementById('clearSearch').classList.toggle('hidden',!norm);
+  const qs=q.trim().toLowerCase();
+  const tokens=qs.split(/\s+/).filter(Boolean);
+  const matches=qs?products.filter(p=>{
+    const hay=`${p.name} ${p.category} ${searchKeywords[p.id]||''}`.toLowerCase();
+    return tokens.every(t=>hay.includes(t));
+  }):products;
+  const pop=document.getElementById('popularSearches');if(pop)pop.classList.toggle('hidden',Boolean(qs));
+  document.getElementById('resultLabel').textContent=qs?`${matches.length} result${matches.length!==1?'s':''} for "${q.trim()}"`:' Curated for you';
+  document.getElementById('searchResults').innerHTML=matches.length?matches.map(prodCard).join(''):emptyState('🔍','No results found',`Nothing matches "${q.trim()}". Try "Saree", "Beauty", "Shirt" or "Kids".`);
+  document.getElementById('clearSearch').classList.toggle('hidden',!qs);
 }
 function initSearch(){
   document.getElementById('popularTags').innerHTML=popularTerms.map(t=>`<button class="pop-tag" data-term="${t}">${t}</button>`).join('');
@@ -1545,7 +1562,7 @@ document.addEventListener('submit',e=>{
 });
 
 document.getElementById('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter'){const t=e.target.value.trim();if(t){sendChat(t);e.target.value='';}e.preventDefault();}});
-document.getElementById('searchInput').addEventListener('input',e=>renderSearch(e.target.value));
+document.getElementById('searchInput').addEventListener('input',e=>{renderSearch(e.target.value);const hs=document.getElementById('headerSearch');if(hs)hs.value=e.target.value;});
 
 function validateTicket(){const ready=document.getElementById('issueCategory').value!==''&&document.getElementById('userPhone').value.length===10&&document.getElementById('issueDetails').value.trim().length>=10;document.getElementById('submitSupportBtn').disabled=!ready;}
 document.getElementById('userPhone').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'');validateTicket();});
@@ -1654,16 +1671,7 @@ if(window.visualViewport){
   });
 }
 
-// Prevent zoom on input focus (double-tap) while keeping pinch zoom
-document.querySelectorAll('input,textarea,select').forEach(el=>{
-  el.addEventListener('touchend',e=>{
-    // Allow normal focus, prevent double-tap zoom
-    if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'){
-      e.preventDefault();
-      e.target.focus();
-    }
-  },{passive:false});
-});
+// Prevent double-tap zoom on inputs without breaking typing (CSS: touch-action:manipulation)
 </script>
 </body>
 </html>
