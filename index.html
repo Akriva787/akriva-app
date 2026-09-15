@@ -229,14 +229,6 @@ img{display:block}
 .filter-pill.active{background:var(--plum);color:#fff;border-color:var(--plum)}
 
 /* ───── SEARCH SCREEN ───── */
-.search-screen-box{
-  display:flex;align-items:center;background:#fff;
-  margin:10px 12px;border-radius:6px;height:44px;
-  border:2px solid var(--plum);overflow:hidden;
-}
-.search-screen-box .s-icon{padding:0 10px;font-size:18px;color:var(--muted)}
-.search-screen-box input{flex:1;border:none;outline:none;font-size:14px}
-.search-screen-box button{padding:0 10px;font-size:15px;color:var(--muted)}
 .pop-section{padding:0 12px}
 .pop-section h4{font-size:13px;font-weight:700;margin:10px 0 8px}
 .pop-tags{display:flex;flex-wrap:wrap;gap:8px}
@@ -721,6 +713,7 @@ input,select,textarea,button,a{
   <div class="search-bar">
     <span class="s-icon">🔍</span>
     <input type="search" id="headerSearch" placeholder="Search Akriva Fashion…" autocomplete="off">
+    <span id="headerClear" class="mic hidden" style="cursor:pointer">✕</span>
   </div>
 </header>
 
@@ -817,11 +810,6 @@ input,select,textarea,button,a{
     <div class="inner-header">
       <button class="back-btn" data-action="home">←</button>
       <h2>Search</h2>
-    </div>
-    <div class="search-screen-box">
-      <span class="s-icon">🔍</span>
-      <input type="search" id="searchInput" placeholder="Search fashion, beauty…" autocomplete="off">
-      <button id="clearSearch" class="hidden">✕</button>
     </div>
     <div id="popularSearches">
       <div class="pop-section"><h4>Popular searches</h4><div class="pop-tags" id="popularTags"></div></div>
@@ -1177,11 +1165,11 @@ function renderSearch(q=''){
   const pop=document.getElementById('popularSearches');if(pop)pop.classList.toggle('hidden',Boolean(qs));
   document.getElementById('resultLabel').textContent=qs?`${matches.length} result${matches.length!==1?'s':''} for "${q.trim()}"`:' Curated for you';
   document.getElementById('searchResults').innerHTML=matches.length?matches.map(prodCard).join(''):emptyState('🔍','No results found',`Nothing matches "${q.trim()}". Try "Saree", "Beauty", "Shirt" or "Kids".`);
-  document.getElementById('clearSearch').classList.toggle('hidden',!qs);
+  document.getElementById('headerClear').classList.toggle('hidden',!qs);
 }
 function initSearch(){
   document.getElementById('popularTags').innerHTML=popularTerms.map(t=>`<button class="pop-tag" data-term="${t}">${t}</button>`).join('');
-  renderSearch(document.getElementById('searchInput').value);
+  renderSearch(document.getElementById('headerSearch').value);
 }
 
 // ── CART ──
@@ -1413,11 +1401,9 @@ function seedChat(){
   },750);
 }
 
-// ── HEADER SEARCH ──
-document.getElementById('headerSearch').addEventListener('input',e=>{
-  if(e.target.value.trim()){document.getElementById('searchInput').value=e.target.value;initSearch();showScreen('search');}
-});
-document.getElementById('headerSearch').addEventListener('focus',()=>{initSearch();showScreen('search');setTimeout(()=>document.getElementById('searchInput').focus(),100);});
+// ── HEADER SEARCH (single bar — typing stays in header) ──
+document.getElementById('headerSearch').addEventListener('input',e=>{initSearch();});
+document.getElementById('headerSearch').addEventListener('focus',()=>{initSearch();showScreen('search');});
 
 // ── EVENTS ──
 document.addEventListener('click',e=>{
@@ -1483,8 +1469,8 @@ document.addEventListener('click',e=>{
   if(e.target.closest('#checkoutBack')){renderCart();showScreen('cart',true);return;}
 
   // Search
-  const term=e.target.closest('[data-term]');if(term){const inp=document.getElementById('searchInput');inp.value=term.dataset.term;renderSearch(term.dataset.term);inp.focus();return;}
-  if(e.target.closest('#clearSearch')){const inp=document.getElementById('searchInput');inp.value='';renderSearch();inp.focus();return;}
+  const term=e.target.closest('[data-term]');if(term){const inp=document.getElementById('headerSearch');inp.value=term.dataset.term;renderSearch(term.dataset.term);inp.focus();return;}
+  if(e.target.closest('#clearSearch')||e.target.closest('#headerClear')){const inp=document.getElementById('headerSearch');inp.value='';renderSearch();inp.focus();return;}
 
   // Profile rows
   const prof=e.target.closest('[data-profile]');if(prof){const p=prof.dataset.profile;
@@ -1562,7 +1548,6 @@ document.addEventListener('submit',e=>{
 });
 
 document.getElementById('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter'){const t=e.target.value.trim();if(t){sendChat(t);e.target.value='';}e.preventDefault();}});
-document.getElementById('searchInput').addEventListener('input',e=>{renderSearch(e.target.value);const hs=document.getElementById('headerSearch');if(hs)hs.value=e.target.value;});
 
 function validateTicket(){const ready=document.getElementById('issueCategory').value!==''&&document.getElementById('userPhone').value.length===10&&document.getElementById('issueDetails').value.trim().length>=10;document.getElementById('submitSupportBtn').disabled=!ready;}
 document.getElementById('userPhone').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'');validateTicket();});
@@ -1655,7 +1640,7 @@ if(window.visualViewport){
       }
     }
     // Fix search input visibility
-    const searchInp=document.getElementById('searchInput');
+    const searchInp=document.getElementById('headerSearch');
     if(searchInp&&document.activeElement===searchInp){
       const screens=document.querySelectorAll('.screen.active');
       screens.forEach(s=>{s.style.overflowY=diff>150?'hidden':'auto';});
