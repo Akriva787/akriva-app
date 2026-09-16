@@ -697,6 +697,16 @@ img{display:block}
 }
 .sort-pill.active{background:var(--plum);border-color:var(--plum);color:#fff}
 
+/* ───── ICON SYSTEM (SVG) ───── */
+.ni svg,.hdr-btn svg,.chat-fab svg,.prof-row-icon svg,.contact-btn .cb-icon svg{display:block}
+.ni svg{width:24px;height:24px}
+.hdr-btn svg{width:22px;height:22px}
+.search-bar .s-icon svg{width:19px;height:19px}
+.chat-fab svg{width:26px;height:26px}
+.cw-tab svg{width:15px;height:15px;vertical-align:-2px}
+.prof-row-icon svg{width:20px;height:20px;margin:0 auto}
+.contact-btn .cb-icon svg{width:21px;height:21px;margin:0 auto}
+
 /* ───── MOBILE FIXES ───── */
 
 /* Safe area insets — iPhone notch & home bar */
@@ -814,13 +824,13 @@ input,select,textarea,button,a{
     </div>
     <div class="hdr-btns">
       <button class="hdr-btn" data-open-drawer aria-label="Bag">
-        🛍
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         <span class="cart-cnt" id="cartCnt" style="display:none">0</span>
       </button>
     </div>
   </div>
   <div class="search-bar">
-    <span class="s-icon">🔍</span>
+    <span class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
     <input type="search" id="headerSearch" placeholder="Search Akriva Fashion…" autocomplete="off">
     <span id="headerClear" class="mic hidden" style="cursor:pointer">✕</span>
   </div>
@@ -1045,11 +1055,11 @@ input,select,textarea,button,a{
 
 <!-- BOTTOM NAV -->
 <nav class="bnav" id="bnav">
-  <button class="nav-item active" data-nav="home"><span class="ni">⌂</span>Home</button>
-  <button class="nav-item" data-nav="explore"><span class="ni">▦</span>Explore</button>
-  <button class="nav-item" data-nav="search"><span class="ni">🔍</span>Search</button>
-  <button class="nav-item" data-nav="cart"><span class="ni">🛍</span>Bag</button>
-  <button class="nav-item" data-nav="profile"><span class="ni">♙</span>Me</button>
+  <button class="nav-item active" data-nav="home"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>Home</button>
+  <button class="nav-item" data-nav="explore"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>Explore</button>
+  <button class="nav-item" data-nav="search"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>Search</button>
+  <button class="nav-item" data-nav="cart"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>Bag</button>
+  <button class="nav-item" data-nav="profile"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>Me</button>
 </nav>
 
 <!-- PRODUCT MODAL -->
@@ -1104,7 +1114,7 @@ input,select,textarea,button,a{
 </div>
 
 <!-- CHAT FAB -->
-<button class="chat-fab" id="supportTrigger" aria-label="Chat with Akrish">💬</button>
+<button class="chat-fab" id="supportTrigger" aria-label="Chat with Akrish"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></button>
 
 <!-- CHAT WIDGET -->
 <div class="chat-widget" id="chatWidget" aria-hidden="true">
@@ -1119,7 +1129,7 @@ input,select,textarea,button,a{
     <button class="cw-close" id="cwClose">✕</button>
   </div>
   <div class="cw-tabs">
-    <button class="cw-tab active" data-chat-tab="chat">💬 Chat</button>
+    <button class="cw-tab active" data-chat-tab="chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Chat</button>
     <button class="cw-tab" data-chat-tab="ticket">🎫 Raise ticket</button>
   </div>
   <div class="chat-panel" id="chatPanel">
@@ -1482,13 +1492,13 @@ function renderWishlist(){
 // ── PROFILE ──
 function renderProfile(){
   const hero=document.getElementById('profileHero');
-  if(currentUser){hero.innerHTML=`<div class="prof-avatar">${escH(currentUser.name.charAt(0).toUpperCase())}</div><div class="prof-info"><p>WELCOME BACK</p><h2>${escH(currentUser.name)}</h2><small>${currentUser.phone?'☏ '+escH(currentUser.phone):''}</small><br><button class="sign-out-btn" data-sign-out>Sign out</button></div>`;}
+  if(currentUser){hero.innerHTML=`<div class="prof-avatar">${escH(currentUser.name.charAt(0).toUpperCase())}</div><div class="prof-info"><p>WELCOME BACK</p><h2>${escH(currentUser.name)}</h2><small>${currentUser.phone?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;vertical-align:-1px;display:inline-block"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> '+escH(currentUser.phone):''}</small><br><button class="sign-out-btn" data-sign-out>Sign out</button></div>`;}
   else{hero.innerHTML=`<div class="prof-avatar">A</div><div class="prof-info"><p>WELCOME TO AKRIVA</p><h2>Sign in to your account</h2><button class="sign-in-cta" data-action="signin">Sign in / Create account ›</button></div>`;}
   document.getElementById('profileMenu').innerHTML=`<div class="prof-menu">
-    <div class="prof-row" data-profile="orders"><span class="prof-row-icon">📦</span><div><b>Your Orders</b><small>Track, return or reorder</small></div><i>›</i></div>
-    <div class="prof-row" data-profile="wishlist"><span class="prof-row-icon">♡</span><div><b>Saved Loves</b><small>Your wishlist</small></div><i>›</i></div>
-    <div class="prof-row" data-profile="addresses"><span class="prof-row-icon">⌖</span><div><b>Delivery Addresses</b><small>Manage saved addresses</small></div><i>›</i></div>
-    <div class="prof-row" data-profile="support"><span class="prof-row-icon">💬</span><div><b>Help &amp; Support</b><small>FAQs, contact us</small></div><i>›</i></div>
+    <div class="prof-row" data-profile="orders"><span class="prof-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span><div><b>Your Orders</b><small>Track, return or reorder</small></div><i>›</i></div>
+    <div class="prof-row" data-profile="wishlist"><span class="prof-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span><div><b>Saved Loves</b><small>Your wishlist</small></div><i>›</i></div>
+    <div class="prof-row" data-profile="addresses"><span class="prof-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><div><b>Delivery Addresses</b><small>Manage saved addresses</small></div><i>›</i></div>
+    <div class="prof-row" data-profile="support"><span class="prof-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span><div><b>Help &amp; Support</b><small>FAQs, contact us</small></div><i>›</i></div>
   </div>`;
 }
 
@@ -1523,9 +1533,9 @@ function renderSupportPage(){
   document.getElementById('supportContent').innerHTML=`<p class="support-intro">We\'re here to help. Browse FAQs below or reach out to our team.</p>
     <div class="faq">${faqs.map((f,i)=>`<div class="faq-item"><button data-faq="${i}">${f[0]}<i>+</i></button><p class="faq-a hidden">${f[1]}</p></div>`).join('')}</div>`;
   document.getElementById('contactList').innerHTML=`<div class="contact-list">
-    <button class="contact-btn" data-contact="call"><span class="cb-icon">☏</span><div><b>Call us</b><small>1800-419-0000 · 9am–9pm</small></div><i>›</i></button>
-    <button class="contact-btn" data-contact="whatsapp"><span class="cb-icon">✆</span><div><b>WhatsApp us</b><small>Chat with our stylists</small></div><i>›</i></button>
-    <button class="contact-btn" data-contact="email"><span class="cb-icon">✉</span><div><b>Email us</b><small>care@akriva.in</small></div><i>›</i></button>
+    <button class="contact-btn" data-contact="call"><span class="cb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><div><b>Call us</b><small>1800-419-0000 · 9am–9pm</small></div><i>›</i></button>
+    <button class="contact-btn" data-contact="whatsapp"><span class="cb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><div><b>WhatsApp us</b><small>Chat with our stylists</small></div><i>›</i></button>
+    <button class="contact-btn" data-contact="email"><span class="cb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><div><b>Email us</b><small>care@akriva.in</small></div><i>›</i></button>
   </div>`;
 }
 
