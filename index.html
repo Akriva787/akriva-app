@@ -720,12 +720,51 @@ img{display:block}
 /* ───── ICON SYSTEM (SVG) ───── */
 .ni svg,.hdr-btn svg,.chat-fab svg,.prof-row-icon svg,.contact-btn .cb-icon svg{display:block}
 .ni svg{width:24px;height:24px}
-.hdr-btn svg{width:22px;height:22px}
+.hdr-btn svg{width:25px;height:25px}
 .search-bar .s-icon svg{width:19px;height:19px}
 .chat-fab svg{width:26px;height:26px}
 .cw-tab svg{width:15px;height:15px;vertical-align:-2px}
 .prof-row-icon svg{width:20px;height:20px;margin:0 auto}
 .contact-btn .cb-icon svg{width:21px;height:21px;margin:0 auto}
+
+/* ───── V2.5 PREMIUM POLISH ───── */
+.site-header{box-shadow:0 3px 14px rgba(64,25,48,.2)}
+.bnav{box-shadow:0 -2px 12px rgba(64,25,48,.08)}
+
+/* Active nav pill indicator */
+.nav-item{position:relative;padding:6px 0 4px}
+.nav-item .ni{width:44px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:15px;transition:all .2s ease}
+.nav-item.active .ni{transform:scale(1.05)}
+.nav-item.active[data-nav="home"] .ni{background:#f0e6f3}
+.nav-item.active[data-nav="explore"] .ni{background:#e3f1ee}
+.nav-item.active[data-nav="search"] .ni{background:#f8efdd}
+.nav-item.active[data-nav="cart"] .ni{background:#fde8ee}
+.nav-item.active[data-nav="profile"] .ni{background:#e9eefb}
+
+/* Premium product grid — rounded cards with soft shadows */
+.prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;background:transparent;padding:10px}
+.prod-grid .prod-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(64,25,48,.09);transition:transform .18s ease,box-shadow .18s ease}
+.prod-card:active{transform:scale(.98)}
+
+/* Slide / deal cards */
+.h-scroll{padding:0 10px}
+.h-scroll .prod-slide{flex:0 0 150px;border-radius:12px;overflow:hidden;margin-right:8px;box-shadow:0 1px 4px rgba(64,25,48,.09);border:none}
+.h-scroll .prod-slide:active{transform:scale(.98)}
+
+/* Press feedback everywhere */
+.add-btn{transition:transform .15s ease}
+.add-btn:active{transform:scale(.96);background:#f0c912}
+.filter-pill{box-shadow:0 1px 2px rgba(0,0,0,.05)}
+
+/* Category tiles — ring polish */
+.cat-tile img{box-shadow:0 2px 7px rgba(64,25,48,.18);border:2px solid #fff}
+
+/* Gold gradient CTA */
+.deal-cta{background:linear-gradient(135deg,#ffd814,#ffb02e);color:#3b2600;border-radius:99px;padding:10px 22px;box-shadow:0 3px 10px rgba(0,0,0,.25);font-weight:800}
+.deal-cta:active{transform:scale(.96)}
+
+/* Toast pill */
+.toast{border-radius:99px;padding:11px 20px;box-shadow:0 4px 16px rgba(0,0,0,.25)}
 
 /* ───── MOBILE FIXES ───── */
 
