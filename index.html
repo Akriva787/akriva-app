@@ -766,6 +766,23 @@ img{display:block}
 /* Toast pill */
 .toast{border-radius:99px;padding:11px 20px;box-shadow:0 4px 16px rgba(0,0,0,.25)}
 
+/* ───── FILTERS ───── */
+.tool-row{display:flex;align-items:center;gap:8px;padding:0 12px 10px}
+.filter-btn{flex:0 0 auto;display:flex;align-items:center;gap:5px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:8px 13px;font-size:13px;font-weight:700;color:#3a2233}
+.filter-btn svg{width:15px;height:15px;stroke-width:2.4}
+.fcount{display:flex;align-items:center;justify-content:center;min-width:19px;height:19px;padding:0 5px;border-radius:10px;background:#7b2d8b;color:#fff;font-size:11px;font-weight:800}
+.f-body{padding:6px 16px 16px}
+.f-sec{margin-top:16px}
+.f-sec h4{font-size:13px;font-weight:800;color:#2c1a26;margin-bottom:9px}
+.f-chips{display:flex;flex-wrap:wrap;gap:8px}
+.fchip{border:1px solid var(--line);background:#fff;border-radius:20px;padding:8px 14px;font-size:12.5px;font-weight:600;color:#50303f;transition:all .15s ease}
+.fchip:active{transform:scale(.96)}
+.fchip.sel{background:#7b2d8b;border-color:#7b2d8b;color:#fff;font-weight:700}
+.cd-acts{display:flex;gap:10px;width:100%}
+.cd-view{flex:1;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px;font-size:14px;font-weight:700;color:#50303f}
+.cd-checkout{flex:1.6;background:var(--plum);color:#fff;border-radius:12px;padding:13px;font-size:14px;font-weight:800}
+.cd-view:active,.cd-checkout:active{transform:scale(.97)}
+
 /* ───── MOBILE FIXES ───── */
 
 /* Safe area insets — iPhone notch & home bar */
@@ -978,7 +995,14 @@ input,select,textarea,button,a{
       <h2 id="catalogTitle">All collections</h2>
     </div>
     <div class="filter-row" id="filterRow"></div>
-    <div class="sort-row" id="sortRow"></div>
+    <div class="tool-row">
+      <button class="filter-btn" data-open-filters>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2v-8.54z"/></svg>
+        Filter
+        <span class="fcount hidden" id="filterCount">0</span>
+      </button>
+      <div class="sort-row" id="sortRow"></div>
+    </div>
     <p style="font-size:12px;color:var(--muted);padding:0 12px 8px" id="catalogCount"></p>
     <div class="prod-grid" id="catalogGrid"></div>
     <div style="height:16px"></div>
@@ -1172,6 +1196,23 @@ input,select,textarea,button,a{
   </div>
 </div>
 
+<!-- FILTER SHEET -->
+<div class="drawer-overlay hidden" id="filterOv">
+  <div class="cart-drawer" style="max-height:85vh">
+    <div class="cd-head">
+      <b>Filter &amp; Refine</b>
+      <button data-close-filters>✕</button>
+    </div>
+    <div class="f-body" id="filterBody"></div>
+    <div class="cd-foot">
+      <div class="cd-acts">
+        <button class="cd-view" id="clearFilters">Clear all</button>
+        <button class="cd-checkout" id="applyFilters">Apply</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- CHAT FAB -->
 <button class="chat-fab" id="supportTrigger" aria-label="Chat with Akrish"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></button>
 
@@ -1344,15 +1385,66 @@ function renderExplore(){
 // ── CATALOG ──
 const sortOpts=[['rel','Relevance'],['pl','Price ↑'],['ph','Price ↓'],['nm','Name']];
 let sortBy='rel';
+let filterState={cats:[],price:null,dsc:0,rate:0};
+const priceSections=[{l:0,h:1000,label:'Under ₹1,000'},{l:1000,h:2000,label:'₹1,000 – ₹2,000'},{l:2000,h:1e9,label:'₹2,000 & above'}];
+const rateSections=[[4,'4 ★ & above'],[4.5,'4.5 ★ & above']];
+const dscSections=[['10','10%+ off'],['25','25%+ off'],['50','50%+ off']];
+function filterList(list){
+  if(filterState.cats.length)list=list.filter(p=>filterState.cats.includes(p.category));
+  if(filterState.price)list=list.filter(p=>p.price>=filterState.price.l&&p.price<filterState.price.h);
+  if(filterState.dsc)list=list.filter(p=>pct(p.old,p.price)>=filterState.dsc);
+  if(filterState.rate)list=list.filter(p=>(ratings[p.id]||{v:4}).v>=filterState.rate);
+  return list;
+}
+function filterCount(){let n=filterState.cats.length;if(filterState.price)n++;if(filterState.dsc)n++;if(filterState.rate)n++;return n;}
+function updateFilterBadge(){
+  const el=document.getElementById('filterCount'),n=filterCount();
+  if(n>0){el.textContent=n;el.classList.remove('hidden');}else el.classList.add('hidden');
+}
+function renderFilters(){
+  const cats=[...new Set(products.map(p=>p.category))];
+  const chip=(cls,v,l,sel)=>`<button class="fchip ${cls}${sel?' sel':''}" data-val="${v}">${l}</button>`;
+  const sec=(t,html)=>`<div class="f-sec"><h4>${t}</h4><div class="f-chips">${html}</div></div>`;
+  const body=
+    sec('Category',cats.map(c=>chip('cat',c,c,filterState.cats.includes(c))).join(''))+
+    sec('Price',priceSections.map(s=>chip('price',`${s.l}-${s.h}`,s.label,!!filterState.price&&filterState.price.l===s.l&&filterState.price.h===s.h)).join(''))+
+    sec('Discount',dscSections.map(s=>chip('dsc',s[0],s[1],filterState.dsc===+s[0])).join(''))+
+    sec('Rating',rateSections.map(s=>chip('rate',s[0],s[1],filterState.rate===+s[0])).join(''));
+  document.getElementById('filterBody').innerHTML=body;
+  updateFilterApplyCount();
+}
+function updateFilterApplyCount(){
+  const n=document.querySelectorAll('#filterBody .fchip.sel').length;
+  document.getElementById('applyFilters').textContent=n?`Apply (${n})`:'Apply';
+}
+function openFilters(){renderFilters();document.getElementById('filterOv').classList.remove('hidden');}
+function closeFilters(){document.getElementById('filterOv').classList.add('hidden');}
+function applyFilters(){
+  const sel=cls=>Array.from(document.querySelectorAll(`#filterBody .fchip.${cls}.sel`)).map(c=>c.dataset.val);
+  filterState={cats:sel('cat'),price:null,dsc:0,rate:0};
+  const pr=document.querySelector('#filterBody .fchip.price.sel');
+  if(pr){const[l,h]=pr.dataset.val.split('-').map(Number);filterState.price={l,h};}
+  const dsc=document.querySelector('#filterBody .fchip.dsc.sel');if(dsc)filterState.dsc=+dsc.dataset.val;
+  const rate=document.querySelector('#filterBody .fchip.rate.sel');if(rate)filterState.rate=+rate.dataset.val;
+  closeFilters();activeCategory='All';renderCatalog();updateFilterBadge();
+  const n=filterCount();
+  toast(n?`✅ ${n} filter${n>1?'s':''} applied`:'All filters cleared');
+}
+function clearFiltersAll(){
+  filterState={cats:[],price:null,dsc:0,rate:0};
+  closeFilters();renderFilters();activeCategory='All';renderCatalog();updateFilterBadge();
+  toast('All filters cleared');
+}
 function applySort(list){const l=[...list];if(sortBy==='pl')l.sort((a,b)=>a.price-b.price);else if(sortBy==='ph')l.sort((a,b)=>b.price-a.price);else if(sortBy==='nm')l.sort((a,b)=>a.name.localeCompare(b.name));return l;}
 function renderCatalog(){
   const cats=['All','Women','Men','Girls','Boys','Beauty'];
   document.getElementById('filterRow').innerHTML=cats.map(c=>`<button class="filter-pill${c===activeCategory?' active':''}" data-filter="${c}">${c}</button>`).join('');
   document.getElementById('sortRow').innerHTML=sortOpts.map(s=>`<button class="sort-pill${sortBy===s[0]?' active':''}" data-sort="${s[0]}">${s[1]}</button>`).join('');
-  const disp=applySort(activeCategory==='All'?products:products.filter(p=>p.category===activeCategory));
+  const disp=applySort(filterList(activeCategory==='All'?products:products.filter(p=>p.category===activeCategory)));
   document.getElementById('catalogTitle').textContent=activeCategory==='All'?'All collections':`${activeCategory}'s collection`;
   document.getElementById('catalogCount').textContent=`${disp.length} result${disp.length!==1?'s':''}`;
-  document.getElementById('catalogGrid').innerHTML=disp.length?disp.map(prodCard).join(''):emptyState('👗','No items found','Try another category.');
+  document.getElementById('catalogGrid').innerHTML=disp.length?disp.map(prodCard).join(''):emptyState('👗','No items found','Try changing filters or category.');
+  updateFilterBadge();
 }
 
 // ── SEARCH ──
@@ -1721,6 +1813,22 @@ document.addEventListener('click',e=>{
   // Filters
   const sort=e.target.closest('[data-sort]');if(sort){sortBy=sort.dataset.sort;renderCatalog();return;}
   const filter=e.target.closest('[data-filter]');if(filter){activeCategory=filter.dataset.filter;renderCatalog();return;}
+
+  // Filter sheet
+  const fOpen=e.target.closest('[data-open-filters]');if(fOpen){openFilters();return;}
+  if(e.target.closest('[data-close-filters]')){closeFilters();return;}
+  if(e.target.closest('#filterOv')){
+    const chip=e.target.closest('.fchip');
+    if(!chip){if(e.target.id==='filterOv')closeFilters();return;}
+    if(chip.classList.contains('cat'))chip.classList.toggle('sel');
+    else{
+      if(chip.classList.contains('sel'))chip.classList.remove('sel');
+      else{const g=chip.className.match(/fchip (\w+)/)[1];document.querySelectorAll(`#filterBody .fchip.${g}.sel`).forEach(c=>c.classList.remove('sel'));chip.classList.add('sel');}
+    }
+    updateFilterApplyCount();return;
+  }
+  if(e.target.closest('#clearFilters')){clearFiltersAll();return;}
+  if(e.target.closest('#applyFilters')){applyFilters();return;}
 
   // Story (same as cat)
   const story=e.target.closest('[data-story]');if(story){activeCategory=story.dataset.story;renderCatalog();showScreen('catalog',true);document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));return;}
