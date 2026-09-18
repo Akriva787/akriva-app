@@ -577,7 +577,7 @@ img{display:block}
 .support-form{padding:14px;overflow-y:auto;}
 .support-form label{display:block;font-size:11px;font-weight:600;color:var(--muted);margin-bottom:4px;margin-top:10px;}
 .support-form select,.support-form input,.support-form textarea{width:100%;border:1.5px solid var(--line);border-radius:8px;padding:9px;font-size:13px;outline:none;}
-.support-form button[type=submit]{width:100%;background:linear-gradient(135deg,var(--chat1),var(--chat2));color:#fff;border:none;border-radius:8px;padding:12px;font-size:14px;font-weight:700;margin-top:14px;cursor:pointer;}
+.support-form button[type=submit]{width:100%;background:linear-gradient(135deg,var(--chat1),var(--chat2));color:#fff;border:none;border-radius:8px;padding:12px;font-size:14px;font-weight:700;margin-top:10px;cursor:pointer;}
 .support-form button[type=submit]:disabled{opacity:.5;cursor:not-allowed;}
 /* Typing indicator */
 .typing-indicator{display:flex;align-items:center;gap:5px;padding:10px 14px!important;}
@@ -811,7 +811,7 @@ img{display:block}
 @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* Welcome bar */
-.welcome-bar{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#153d70,#0F3460);margin:10px 12px 0;padding:10px 14px;border-radius:14px;color:#fff;box-shadow:0 4px 14px rgba(15,52,96,.35)}
+.welcome-bar{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#153d70,#0F3460);margin:8px 12px 0;padding:10px 14px;border-radius:14px;color:#fff;box-shadow:0 4px 14px rgba(15,52,96,.35)}
 .welcome-bar.hide{display:none}
 .wb-name{font-size:15px;font-weight:700}
 .wb-sub{font-size:11.5px;color:rgba(255,255,255,.72);margin-top:2px}
@@ -827,31 +827,23 @@ img{display:block}
 @keyframes bb{0%{transform:scale(1)}35%{transform:scale(1.45)}70%{transform:scale(.92)}100%{transform:scale(1)}}
 
 /* ───── NADRA HEADER ANNOUNCEMENT BAR ───── */
-.announce-bar{background:linear-gradient(90deg,#d4ac6e,#caa05f,#d4ac6e);color:#2b1a00;overflow:hidden;flex-shrink:0}
-.announce-track{display:flex;width:max-content;align-items:center;white-space:nowrap;padding:7px 0;font-size:11.5px;font-weight:800;letter-spacing:.3px;animation:tick 18s linear infinite}
-.announce-track .ann-dot{opacity:.5;margin:0 6px}
+.announce-bar{background:linear-gradient(90deg,#d4ac6e,#caa05f,#d4ac6e);color:#2b1a00;overflow:hidden;flex-shrink:0;text-align:center}
+.announce-text{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.3px;padding:9px 14px;line-height:1.35}
 
 /* ───── MOOD HERO · ATELIER · SOCIAL ───── */
-.hero{position:relative;margin:10px 12px 0;border-radius:18px;overflow:hidden;min-height:172px;display:flex;align-items:center;padding:20px 18px 18px;color:#fff;z-index:1}
-.hero .hero-copy{position:relative;z-index:3;max-width:62%}
-.hero .eyebrow{font-size:10px;letter-spacing:1.4px;font-weight:800;color:#ffe9be;text-transform:uppercase;margin-bottom:7px}
-.hero h1{font-family:var(--serif);font-size:31px;line-height:1.08;font-weight:800;margin-bottom:14px;letter-spacing:-.5px}
+.hero{position:relative;margin:8px 12px 0;border-radius:18px;overflow:hidden;min-height:150px;display:flex;align-items:center;padding:22px 20px;color:#fff;z-index:1}
+.hero .hero-copy{position:relative;z-index:3;max-width:100%}
+.hero .eyebrow{font-size:10px;letter-spacing:1.4px;font-weight:800;color:#ffe9be;text-transform:uppercase;margin-bottom:8px}
+.hero h1{font-family:var(--serif);font-size:30px;line-height:1.1;font-weight:800;margin-bottom:16px;letter-spacing:-.5px}
 .hero h1 em{font-style:italic;color:#ffe9be}
-.light-button{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.18);color:#fff;border-radius:99px;padding:9px 16px;font-size:12px;font-weight:800;cursor:pointer;backdrop-filter:blur(4px)}
+.light-button{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.18);color:#fff;border-radius:99px;padding:10px 18px;font-size:12.5px;font-weight:800;cursor:pointer}
 .light-button span{transition:transform .2s ease}
 .light-button:active{transform:scale(.95)}
-.hero-image{position:absolute;right:-26px;bottom:-30px;width:172px;height:196px;background-size:cover;background-position:center;z-index:1;border-radius:6px;transform:rotate(-6deg);box-shadow:0 8px 22px rgba(0,0,0,.28)}
-.hero-orb{position:absolute;border-radius:50%;z-index:0}
-.orb-one{width:130px;height:130px;right:-34px;top:-36px;background:radial-gradient(circle,rgba(255,255,255,.4),transparent 70%)}
-.orb-two{width:100px;height:100px;left:-26px;bottom:-34px;background:radial-gradient(circle,rgba(255,233,190,.45),transparent 70%)}
 .hero.mood-soft-hero{background:linear-gradient(115deg,#f4c6d0,#e98aa3 55%,#d96a8d)}
-.hero.mood-soft-hero .hero-image{background-image:url('https://images.unsplash.com/photo-1596783074918-c84cb06531ca?auto=format&fit=crop&w=220&q=80')}
 .hero.mood-glow-hero{background:linear-gradient(115deg,#f6d29c,#e9a34d 55%,#d9882f)}
-.hero.mood-glow-hero .hero-image{background-image:url('https://images.unsplash.com/photo-1609803384069-19f3f04c1b9d?auto=format&fit=crop&w=220&q=80')}
 .hero.mood-bold-hero{background:linear-gradient(115deg,#2c1a3a,#5a2a6e 55%,#3d1d5c)}
-.hero.mood-bold-hero .hero-image{background-image:url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=220&q=80')}
 
-.atelier{background:#fff;margin:10px 12px 0;border-radius:16px;padding:14px 14px 12px;box-shadow:0 1px 4px rgba(64,25,48,.08)}
+.atelier{background:#fff;margin:8px 12px 0;border-radius:16px;padding:14px 14px 12px;box-shadow:0 1px 4px rgba(64,25,48,.08)}
 .atelier-title{display:flex;align-items:center;gap:10px}
 .atelier-mark{color:var(--gold);font-size:16px}
 .atelier-title p{font-size:9px;letter-spacing:1.6px;color:var(--muted);font-weight:800}
@@ -866,7 +858,7 @@ img{display:block}
 .mood-card.selected span{color:var(--gold)}
 .mood-card:active{transform:scale(.95)}
 
-.activity-ticker{display:flex;align-items:center;gap:8px;margin:12px 12px 0;padding:9px 12px;border-radius:12px;background:linear-gradient(120deg,#fff,#fbeef1);border:1px solid #f2dfe4;font-size:11px;color:#4a2033;font-weight:600;min-height:38px}
+.activity-ticker{display:flex;align-items:center;gap:8px;margin:8px 12px 0;padding:9px 12px;border-radius:12px;background:linear-gradient(120deg,#fff,#fbeef1);border:1px solid #f2dfe4;font-size:11px;color:#4a2033;font-weight:600;min-height:38px}
 .ticker-icon{width:22px;height:22px;border-radius:50%;background:#fff0f3;display:grid;place-items:center;font-size:12px;flex-shrink:0}
 .ticker-text{transition:opacity .25s ease;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 
@@ -1022,9 +1014,7 @@ input,select,textarea,button,a{
 
 <!-- ANNOUNCEMENT BAR -->
 <div class="announce-bar">
-  <div class="announce-track">
-    <span>✨ FESTIVE SALE — Extra 10% off with code AKRIVA10</span><span class="ann-dot">·</span><span>🚚 FREE delivery above ₹999</span><span class="ann-dot">·</span><span>↩️ 7-day easy returns · COD available</span><span class="ann-dot">·</span><span>✨ FESTIVE SALE — Extra 10% off with code AKRIVA10</span><span class="ann-dot">·</span><span>🚚 FREE delivery above ₹999</span><span class="ann-dot">·</span><span>↩️ 7-day easy returns · COD available</span><span class="ann-dot">·</span>
-  </div>
+  <span class="announce-text">✨ Festive Sale — 10% off with AKRIVA10 · FREE delivery ₹999+ · 7-day returns</span>
 </div>
 
 <!-- APP BODY -->
@@ -1050,9 +1040,6 @@ input,select,textarea,button,a{
         <h1 id="hero-title">Glow like it's <em>golden hour</em></h1>
         <button class="light-button" type="button" data-action="all">Explore Collection <span>→</span></button>
       </div>
-      <div class="hero-image"></div>
-      <div class="hero-orb orb-one"></div>
-      <div class="hero-orb orb-two"></div>
     </div>
 
     <!-- Atelier -->
@@ -1073,7 +1060,7 @@ input,select,textarea,button,a{
     <div class="activity-ticker" id="activity-ticker"><span class="ticker-icon">🔥</span><span class="ticker-text" id="ticker-text"></span></div>
 
     <!-- Deals of the Day -->
-    <div class="amz-block" style="padding-bottom:0;margin-top:14px">
+    <div class="amz-block" style="padding-bottom:0;margin-top:10px">
       <div class="amz-block-header">
         <h3>Deals of the Day <span class="sale-timer" id="sale-timer">05:30:00</span></h3>
         <span class="see-all" data-action="all">See all deals</span>
