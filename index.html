@@ -36,7 +36,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;overflow:hidden;overscroll-behavior:none}
-body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--bg);position:relative;
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--bg);
   display:flex;flex-direction:column;max-width:430px;margin:0 auto;
   box-shadow:0 0 30px rgba(0,0,0,.25)}
 button{cursor:pointer;font-family:'DM Sans',sans-serif;border:none;background:none}
@@ -58,7 +58,7 @@ img{display:block}
 .screen.active{display:block}
 
 /* ───── HEADER ───── */
-.site-header{background:var(--plum);padding-top:env(safe-area-inset-top)}
+.site-header{background:var(--plum)}
 .header-top{
   display:flex;align-items:center;gap:10px;padding:12px 14px 8px;
 }
@@ -430,7 +430,7 @@ img{display:block}
 
 /* ───── MODAL ───── */
 .modal-backdrop{
-  position:absolute;inset:0;background:rgba(0,0,0,.6);z-index:500;
+  position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;
   display:flex;align-items:flex-end;
 }
 .modal-sheet{
@@ -468,7 +468,7 @@ img{display:block}
 /* ───── SUPPORT DRAWER ───── */
 /* ── CHAT FAB ── */
 .chat-fab{
-  position:absolute;bottom:calc(var(--bnav-h) + 14px);right:14px;
+  position:fixed;bottom:calc(var(--bnav-h) + 14px);right:14px;
   width:54px;height:54px;border-radius:50%;
   background:linear-gradient(135deg,var(--chat1),var(--chat2));
   color:#fff;font-size:26px;border:none;cursor:pointer;
@@ -486,7 +486,7 @@ img{display:block}
 
 /* ── CHAT WIDGET ── */
 .chat-widget{
-  position:absolute;bottom:calc(var(--bnav-h) + 78px);right:12px;
+  position:fixed;bottom:calc(var(--bnav-h) + 78px);right:12px;
   width:min(330px,calc(100vw - 24px));height:470px;
   background:#fff;border-radius:18px;
   box-shadow:0 12px 40px rgba(0,0,0,.22),0 2px 8px rgba(0,0,0,.1);
@@ -572,7 +572,7 @@ img{display:block}
 .support-form{padding:14px;overflow-y:auto;}
 .support-form label{display:block;font-size:11px;font-weight:600;color:var(--muted);margin-bottom:4px;margin-top:10px;}
 .support-form select,.support-form input,.support-form textarea{width:100%;border:1.5px solid var(--line);border-radius:8px;padding:9px;font-size:13px;outline:none;}
-.support-form button[type=submit]{width:100%;background:linear-gradient(135deg,var(--chat1),var(--chat2));color:#fff;border:none;border-radius:8px;padding:12px;font-size:14px;font-weight:700;margin-top:10px;cursor:pointer;}
+.support-form button[type=submit]{width:100%;background:linear-gradient(135deg,var(--chat1),var(--chat2));color:#fff;border:none;border-radius:8px;padding:12px;font-size:14px;font-weight:700;margin-top:14px;cursor:pointer;}
 .support-form button[type=submit]:disabled{opacity:.5;cursor:not-allowed;}
 /* Typing indicator */
 .typing-indicator{display:flex;align-items:center;gap:5px;padding:10px 14px!important;}
@@ -605,7 +605,7 @@ img{display:block}
 .go-btn{margin-top:6px;background:var(--plum);color:#fff;border-radius:4px;padding:10px 22px;font-size:13px;font-weight:700;cursor:pointer}
 
 /* ───── TOAST ───── */
-.toast-wrap{position:absolute;bottom:calc(var(--bnav-h)+12px);left:50%;transform:translateX(-50%);z-index:800;pointer-events:none}
+.toast-wrap{position:fixed;bottom:calc(var(--bnav-h)+12px);left:50%;transform:translateX(-50%);z-index:800;pointer-events:none}
 .toast{background:rgba(15,15,15,.9);color:#fff;padding:10px 18px;border-radius:6px;font-size:13px;font-weight:500;white-space:nowrap;backdrop-filter:blur(8px);opacity:1;transition:opacity .3s}
 .toast.fade{opacity:0}
 
@@ -630,7 +630,7 @@ img{display:block}
 
 /* ───── LOCATION SHEET ───── */
 .loc-overlay{
-  position:absolute;inset:0;background:rgba(0,0,0,.5);z-index:640;
+  position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:640;
   display:flex;align-items:flex-end;justify-content:center;
 }
 .loc-sheet{
@@ -657,7 +657,7 @@ img{display:block}
 
 /* ───── CART DRAWER ───── */
 .drawer-overlay{
-  position:absolute;inset:0;background:rgba(0,0,0,.5);z-index:650;
+  position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:650;
   display:flex;align-items:flex-end;justify-content:center;
 }
 .cart-drawer{
@@ -789,7 +789,7 @@ img{display:block}
 .header-logo,.deal-text h2,.amz-block-header h3,.inner-header h2,#modalName,.cd-head b,.f-sec h4,.prof-info h2{font-family:var(--serif);letter-spacing:.2px}
 
 /* Splash */
-.splash{position:absolute;inset:0;z-index:9999;background:radial-gradient(120% 120% at 50% 0%,#1d4571 0%,#0F3460 55%,#0a2544 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .45s ease}
+.splash{position:fixed;inset:0;z-index:9999;background:radial-gradient(120% 120% at 50% 0%,#1d4571 0%,#0F3460 55%,#0a2544 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .45s ease}
 .splash.hide{opacity:0;pointer-events:none}
 .splash-mark{font-family:var(--serif);color:var(--gold);font-size:15px;letter-spacing:5px;margin-bottom:16px}
 .splash-logo{font-family:var(--serif);font-size:54px;font-weight:800;color:#fff;letter-spacing:1px}
@@ -806,7 +806,7 @@ img{display:block}
 @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* Welcome bar */
-.welcome-bar{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#153d70,#0F3460);margin:8px 12px 0;padding:10px 14px;border-radius:14px;color:#fff;box-shadow:0 4px 14px rgba(15,52,96,.35)}
+.welcome-bar{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#153d70,#0F3460);margin:10px 12px 0;padding:10px 14px;border-radius:14px;color:#fff;box-shadow:0 4px 14px rgba(15,52,96,.35)}
 .welcome-bar.hide{display:none}
 .wb-name{font-size:15px;font-weight:700}
 .wb-sub{font-size:11.5px;color:rgba(255,255,255,.72);margin-top:2px}
@@ -814,61 +814,12 @@ img{display:block}
 .wb-chip svg{width:14px;height:14px}
 
 /* Confetti */
-.confetti{position:absolute;z-index:9600;width:8px;height:8px;border-radius:2px;pointer-events:none}
+.confetti{position:fixed;z-index:9600;width:8px;height:8px;border-radius:2px;pointer-events:none}
 @keyframes confettiFall{0%{opacity:1;transform:translate(0,0) rotate(0deg) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(.5)}}
 
 /* Cart badge bounce */
 .cart-cnt.bounce{animation:bb .5s ease}
 @keyframes bb{0%{transform:scale(1)}35%{transform:scale(1.45)}70%{transform:scale(.92)}100%{transform:scale(1)}}
-
-/* ───── NADRA HEADER ANNOUNCEMENT BAR ───── */
-.announce-bar{background:linear-gradient(90deg,#d4ac6e,#caa05f,#d4ac6e);color:#2b1a00;overflow:hidden;flex-shrink:0;text-align:center}
-.announce-text{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.3px;padding:9px 14px;line-height:1.35}
-
-/* ───── MOOD HERO · ATELIER · SOCIAL ───── */
-.hero{position:relative;margin:8px 12px 0;border-radius:18px;overflow:hidden;min-height:150px;display:flex;align-items:center;padding:22px 20px;color:#fff;z-index:1}
-.hero .hero-copy{position:relative;z-index:3;max-width:100%}
-.hero .eyebrow{font-size:10px;letter-spacing:1.4px;font-weight:800;color:#ffe9be;text-transform:uppercase;margin-bottom:8px}
-.hero h1{font-family:var(--serif);font-size:30px;line-height:1.1;font-weight:800;margin-bottom:16px;letter-spacing:-.5px}
-.hero h1 em{font-style:italic;color:#ffe9be}
-.light-button{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.18);color:#fff;border-radius:99px;padding:10px 18px;font-size:12.5px;font-weight:800;cursor:pointer}
-.light-button span{transition:transform .2s ease}
-.light-button:active{transform:scale(.95)}
-.hero.mood-soft-hero{background:linear-gradient(115deg,#f4c6d0,#e98aa3 55%,#d96a8d)}
-.hero.mood-glow-hero{background:linear-gradient(115deg,#f6d29c,#e9a34d 55%,#d9882f)}
-.hero.mood-bold-hero{background:linear-gradient(115deg,#2c1a3a,#5a2a6e 55%,#3d1d5c)}
-
-.atelier{background:#fff;margin:8px 12px 0;border-radius:16px;padding:14px 14px 12px;box-shadow:0 1px 4px rgba(64,25,48,.08)}
-.atelier-title{display:flex;align-items:center;gap:10px}
-.atelier-mark{color:var(--gold);font-size:16px}
-.atelier-title p{font-size:9px;letter-spacing:1.6px;color:var(--muted);font-weight:800}
-.atelier-title h2{font-family:var(--serif);font-size:18px;color:var(--ink);line-height:1.1;margin-top:2px}
-.atelier-arrow{margin-left:auto;color:#c7c2c6;font-size:22px}
-.mood-row{display:flex;gap:8px;margin-top:13px}
-.mood-card{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:12px 4px 10px;text-align:center;cursor:pointer;transition:all .18s ease}
-.mood-card span{display:block;font-size:14px;color:var(--gold)}
-.mood-card b{display:block;margin-top:5px;font-size:11px;font-weight:700;color:#50303f}
-.mood-card.selected{background:linear-gradient(120deg,#2a1b38,#4a2060);border-color:transparent}
-.mood-card.selected b{color:#fff}
-.mood-card.selected span{color:var(--gold)}
-.mood-card:active{transform:scale(.95)}
-
-.activity-ticker{display:flex;align-items:center;gap:8px;margin:8px 12px 0;padding:9px 12px;border-radius:12px;background:linear-gradient(120deg,#fff,#fbeef1);border:1px solid #f2dfe4;font-size:11px;color:#4a2033;font-weight:600;min-height:38px}
-.ticker-icon{width:22px;height:22px;border-radius:50%;background:#fff0f3;display:grid;place-items:center;font-size:12px;flex-shrink:0}
-.ticker-text{transition:opacity .25s ease;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-
-.sale-timer{display:inline-grid;place-items:center;margin-left:7px;background:linear-gradient(135deg,#ffd98a,#f5a623);color:#2a0a1a;font-family:'DM Sans',sans-serif;font-weight:800;font-size:10px;border-radius:50px;padding:3px 9px;vertical-align:middle;box-shadow:0 3px 8px -3px rgba(245,166,35,.8)}
-
-#screenHome.searching .hero,#screenHome.searching .atelier,#screenHome.searching .activity-ticker{display:none}
-
-.modal-share{position:absolute;top:10px;right:48px;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.35);color:#fff;border:none;display:flex;align-items:center;justify-content:center;z-index:10;cursor:pointer}
-.modal-share svg{width:16px;height:16px}
-.modal-share:active{transform:scale(.94)}
-.modal-bought{font-size:11px;font-weight:700;color:#b33951;margin:4px 0 8px}
-
-.wl-tools{flex-wrap:wrap}
-.wishlist-tools button[data-wish-share]{border:1.5px solid #e5dbe0;background:#fff;color:#3d3a3c;border-radius:50px;padding:10px 15px;font-weight:700;font-size:12px;cursor:pointer}
-.wishlist-tools button[data-wish-share]:active{transform:scale(.96)}
 
 /* ───── MOBILE FIXES ───── */
 
@@ -1007,11 +958,6 @@ input,select,textarea,button,a{
   </div>
 </header>
 
-<!-- ANNOUNCEMENT BAR -->
-<div class="announce-bar">
-  <span class="announce-text">✨ Festive Sale — 10% off with AKRIVA10 · FREE delivery ₹999+ · 7-day returns</span>
-</div>
-
 <!-- APP BODY -->
 <div id="appBody">
 
@@ -1028,43 +974,27 @@ input,select,textarea,button,a{
     <!-- Welcome Bar -->
     <div class="welcome-bar hide" id="welcomeBar"></div>
 
-    <!-- Mood Hero -->
-    <div class="hero mood-glow-hero" id="hero">
-      <div class="hero-copy">
-        <p class="eyebrow" id="hero-eyebrow">Akriva Atelier · Golden Hour</p>
-        <h1 id="hero-title">Glow like it's <em>golden hour</em></h1>
-        <button class="light-button" type="button" data-action="all">Explore Collection <span>→</span></button>
+    <!-- Category Tiles -->
+    <div class="cat-scroll" id="catScroll"></div>
+
+    <!-- Deal Banner -->
+    <div class="deal-banner">
+      <div class="deal-text">
+        <div class="eyebrow" id="heroEyebrow">NEW COLLECTION · SS 2025</div>
+        <h2 id="heroTitle">Dressed in<br>Quiet Luxury</h2>
+        <button class="deal-cta" data-action="explore">Explore →</button>
       </div>
+      <img class="deal-img" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=200&q=80" alt="Saree" loading="lazy" referrerpolicy="no-referrer" onerror="this.src='https://via.placeholder.com/200x200?text=Deal'">
     </div>
 
-    <!-- Atelier -->
-    <div class="atelier">
-      <div class="atelier-title">
-        <span class="atelier-mark">✦</span>
-        <div><p>AKRIVA ATELIER</p><h2>Pick your mood edit</h2></div>
-        <span class="atelier-arrow">›</span>
-      </div>
-      <div class="mood-row">
-        <button class="mood-card mood-soft" type="button" data-mood="soft" data-label="Akriva Atelier · Soft Romance" data-copy="Wear your <em>softest</em> story"><span>✦</span><b>Soft Romance</b></button>
-        <button class="mood-card selected mood-glow" type="button" data-mood="glow" data-label="Akriva Atelier · Golden Hour" data-copy="Glow like it's <em>golden hour</em>"><span>✦</span><b>Golden Hour</b></button>
-        <button class="mood-card mood-bold" type="button" data-mood="bold" data-label="Akriva Atelier · Bold Muse" data-copy="Own the night in <em>bold</em> hues"><span>✦</span><b>Bold Muse</b></button>
-      </div>
-    </div>
-
-    <!-- Activity Ticker -->
-    <div class="activity-ticker" id="activity-ticker"><span class="ticker-icon">🔥</span><span class="ticker-text" id="ticker-text"></span></div>
-
-    <!-- Deals of the Day -->
-    <div class="amz-block" style="padding-bottom:0;margin-top:10px">
+    <!-- Deal of the Day -->
+    <div class="amz-block" style="padding-bottom:0">
       <div class="amz-block-header">
-        <h3>Deals of the Day <span class="sale-timer" id="sale-timer">05:30:00</span></h3>
+        <h3>Deal of the day</h3>
         <span class="see-all" data-action="all">See all deals</span>
       </div>
-      <div class="h-scroll" id="deal-slider"></div>
+      <div class="h-scroll" id="dealSlider"></div>
     </div>
-
-    <!-- Shop by Category -->
-    <div class="cat-scroll" id="catScroll"></div>
 
     <!-- Top Picks -->
     <div class="amz-block" style="margin-top:0;padding:12px 0 0">
@@ -1082,6 +1012,16 @@ input,select,textarea,button,a{
         <span class="see-all" data-action="explore">Explore</span>
       </div>
       <div class="h-scroll" id="trendSlider"></div>
+    </div>
+
+    <!-- Atelier mood -->
+    <div class="amz-block">
+      <div class="amz-block-header"><h3>Akriva Atelier — Pick your mood</h3></div>
+      <div style="display:flex;gap:8px;overflow-x:auto">
+        <div class="mood-tile" data-mood="soft" data-label="SOFT WHISPER" data-copy="Draped in Pastel Dreams" style="flex:0 0 105px;border-radius:6px;overflow:hidden;position:relative;aspect-ratio:.75;cursor:pointer;background-size:cover;background-position:center;background-image:url('https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=300&q=80')"><div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:16px 8px 8px;color:#fff;font-size:11px;font-weight:700;text-align:center">Soft</div></div>
+        <div class="mood-tile selected" data-mood="glow" data-label="NEW COLLECTION · SS 2025" data-copy="Dressed in Quiet Luxury" style="flex:0 0 105px;border-radius:6px;overflow:hidden;position:relative;aspect-ratio:.75;cursor:pointer;background-size:cover;background-position:center;background-image:url('https://images.unsplash.com/photo-1609803384069-19f3f04c1b9d?w=300&q=80');box-shadow:0 0 0 2.5px var(--gold)"><div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:16px 8px 8px;color:#fff;font-size:11px;font-weight:700;text-align:center">Glow</div></div>
+        <div class="mood-tile" data-mood="bold" data-label="BOLD STATEMENT" data-copy="Own the Night" style="flex:0 0 105px;border-radius:6px;overflow:hidden;position:relative;aspect-ratio:.75;cursor:pointer;background-size:cover;background-position:center;background-image:url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=300&q=80')"><div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:16px 8px 8px;color:#fff;font-size:11px;font-weight:700;text-align:center">Bold</div></div>
+      </div>
     </div>
 
     <!-- More products -->
@@ -1266,13 +1206,11 @@ input,select,textarea,button,a{
 <div class="modal-backdrop hidden" id="productModal">
   <div class="modal-sheet">
     <button class="modal-close" data-close-modal>✕</button>
-    <button class="modal-share" id="modal-share" aria-label="Share this piece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
     <img class="modal-img" id="modalImg" src="" alt="">
     <div class="modal-body">
       <p class="modal-cat" id="modalCat"></p>
       <h2 class="modal-name" id="modalName"></h2>
       <div class="modal-rating" id="modalRating"></div>
-      <p class="modal-bought" id="modal-bought"></p>
       <div class="modal-badge-strip" id="modalBadge"></div>
       <p class="modal-price" id="modalPrice"></p>
       <p class="modal-mrp" id="modalMrp"></p>
@@ -1492,7 +1430,7 @@ function renderHome(){
   ];
   document.getElementById('catScroll').innerHTML=cats.map(c=>`<div class="cat-tile" data-cat="${c.label}"><img src="${c.img}" alt="${c.label}" loading="lazy" referrerpolicy="no-referrer" onerror="this.src='https://via.placeholder.com/52x52?text=${c.label}'"><span>${c.label}</span></div>`).join('');
   const deals=[...products.filter(p=>p.badge),...products.filter(p=>!p.badge).slice(0,3)];
-  document.getElementById('deal-slider').innerHTML=deals.map(slideCard).join('');
+  document.getElementById('dealSlider').innerHTML=deals.map(slideCard).join('');
   document.getElementById('topPicksGrid').innerHTML=[1,3,2,4].map(id=>products.find(p=>p.id===id)).filter(Boolean).map(prodCard).join('');
   document.getElementById('trendSlider').innerHTML=[4,1,8,3,7,2].map(id=>products.find(p=>p.id===id)).filter(Boolean).map(slideCard).join('');
   document.getElementById('moreGrid').innerHTML=[5,6,7,8].map(id=>products.find(p=>p.id===id)).filter(Boolean).map(prodCard).join('');
@@ -1577,46 +1515,6 @@ function renderCatalog(){
   document.getElementById('catalogGrid').innerHTML=disp.length?disp.map(prodCard).join(''):emptyState('👗','No items found','Try changing filters or category.');
   updateFilterBadge();
 }
-
-// ── SIGNATURE HOME: flash sale timer · activity ticker · share ──
-const SALE_MS=5*60*60*1000+30*60*1000;
-const pad2=n=>String(n).padStart(2,'0');
-function saleEndTime(){
-  let end=Number(localStorage.getItem('akriva_sale_end'));const now=Date.now();
-  if(!end||end<=now){end=now+SALE_MS;localStorage.setItem('akriva_sale_end',end);}
-  return end;
-}
-function renderSaleTimer(){
-  const el=document.getElementById('sale-timer');if(!el)return;
-  const diff=Math.max(0,Math.floor((saleEndTime()-Date.now())/1000));
-  const h=Math.floor(diff/3600),m=Math.floor((diff%3600)/60),s=diff%60;
-  el.textContent=`${pad2(h)}:${pad2(m)}:${pad2(s)}`;
-  if(diff===0)localStorage.removeItem('akriva_sale_end');
-}
-const tickerNames=['Priya','Ananya','Riya','Sneha','Meera','Kavya','Ishita','Divya','Nikhil','Aarav'];
-const tickerCities=['Delhi','Mumbai','Bengaluru','Pune','Kolkata','Hyderabad','Jaipur','Chennai'];
-let tickerIndex=0;
-function tickerMessage(product){return `${tickerNames[Math.floor(Math.random()*tickerNames.length)]} from ${tickerCities[Math.floor(Math.random()*tickerCities.length)]} just picked ${product.name} · ${1+Math.floor(Math.random()*58)} min ago`;}
-function startTicker(){
-  const el=document.getElementById('ticker-text');if(!el)return;
-  const pool=products.some(p=>p.badge)?products.filter(p=>p.badge):products;
-  const swap=()=>{el.textContent=tickerMessage(pool[tickerIndex++%pool.length]);el.style.transition='opacity .25s ease';el.style.opacity=1;};
-  el.style.opacity=0;setTimeout(swap,250);
-  setInterval(()=>{el.style.opacity=0;setTimeout(swap,250)},6000);
-}
-function shareText(){
-  const saved=products.filter(p=>savedProducts.has(p.id));
-  const names=saved.length?saved.slice(0,5).map(p=>p.name).join(', '):'Akriva picks';
-  return `My Akriva edit 💜 ${names}${saved.length>5?' & more':''} — shop at https://akriva787.github.io/akriva-app/`;
-}
-function shareLook(extra=''){
-  const text=extra?`${extra}\n\n${shareText()}`:shareText();
-  if(navigator.share)navigator.share({title:'Akriva edit',text}).catch(()=>{});
-  else if(navigator.clipboard&&'writeText'in navigator.clipboard)navigator.clipboard.writeText(text).then(()=>toast('Share text copied to clipboard'));
-  else toast('Share: select & copy the wishlist link');
-}
-renderSaleTimer();setInterval(renderSaleTimer,1000);
-startTicker();
 
 // ── SEARCH ──
 const popularTerms=['Saree','Dress','Beauty','Men','Kurta','Tote','Shirt','Kids'];
@@ -1799,7 +1697,7 @@ function placeOrder(){
 function renderWishlist(){
   const saved=products.filter(p=>savedProducts.has(p.id));
   const tools=document.getElementById('wishlistTools');
-  if(saved.length){const total=saved.reduce((s,p)=>s+p.price,0);tools.innerHTML=`<div class="wl-tools wishlist-tools"><div class="wl-stats">${saved.length} piece${saved.length!==1?'s':''} loved<b>${money(total)}</b></div><button class="wl-all-btn" data-wish-all>Add all to bag</button><button class="wl-share-btn" data-wish-share>Share edit ↗</button></div>`;}else tools.innerHTML='';
+  if(saved.length){const total=saved.reduce((s,p)=>s+p.price,0);tools.innerHTML=`<div class="wl-tools"><div class="wl-stats">${saved.length} piece${saved.length!==1?'s':''} loved<b>${money(total)}</b></div><button class="wl-all-btn" data-wish-all>Add all to bag</button></div>`;}else tools.innerHTML='';
   document.getElementById('wishlistList').innerHTML=saved.length?saved.map(p=>`<div class="wl-card" data-pid="${p.id}">
     <img class="wl-img" src="${p.image}" alt="${escH(p.name)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.src='https://via.placeholder.com/120x120?text=Akriva'">
     <div class="wl-info">
@@ -1878,7 +1776,6 @@ function openProduct(id){
   const stock=(selectedProduct.id*7)%9+1;
   document.getElementById('modalStock').textContent=stock<5?`Only ${stock} left`:'In stock';
   document.getElementById('modalEta').textContent=`🚚 Get it by ${etaStr(4+(selectedProduct.id%3))}`;
-  document.getElementById('modal-bought').textContent=`🔥 ${2+(selectedProduct.id*3)%9} people bought this today`;
   document.getElementById('productModal').classList.remove('hidden');
 }
 
@@ -2028,10 +1925,6 @@ document.addEventListener('click',e=>{
   // Wishlist all
   if(e.target.closest('[data-wish-all]')){products.filter(p=>savedProducts.has(p.id)).forEach(p=>addToCart(p));toast('All saved pieces added to bag');renderCart();showScreen('cart',true);return;}
 
-  // Share
-  if(e.target.closest('[data-wish-share]')){shareLook();return;}
-  if(e.target.closest('#modal-share')){shareLook(selectedProduct?`Just saved ${selectedProduct.name} (${money(selectedProduct.price)}) — my Akriva pick`:'');return;}
-
   // Wishlist add one
   const wishAdd=e.target.closest('[data-wish-add]');if(wishAdd){addToCart(products.find(p=>p.id===Number(wishAdd.dataset.wishAdd)));return;}
 
@@ -2098,7 +1991,7 @@ document.addEventListener('click',e=>{
   const contact=e.target.closest('[data-contact]');if(contact){const m={call:'Calling Akriva at 1800-419-0000…',whatsapp:'Opening WhatsApp with your stylist…',email:'Email us at care@akriva.in'};toast(m[contact.dataset.contact]);return;}
 
   // Mood
-  const mood=e.target.closest('[data-mood]');if(mood){document.querySelectorAll('.mood-card').forEach(m=>m.classList.remove('selected'));mood.classList.add('selected');const h=document.getElementById('hero');h.classList.remove('mood-soft-hero','mood-glow-hero','mood-bold-hero');h.classList.add('mood-'+mood.dataset.mood+'-hero');document.getElementById('hero-eyebrow').textContent=mood.dataset.label;document.getElementById('hero-title').innerHTML=mood.dataset.copy;toast('Mood updated ✨');return;}
+  const mood=e.target.closest('[data-mood]');if(mood){document.querySelectorAll('[data-mood]').forEach(m=>{m.style.boxShadow=''});mood.style.boxShadow='0 0 0 2.5px var(--gold)';document.getElementById('heroEyebrow').textContent=mood.dataset.label;document.getElementById('heroTitle').textContent=mood.dataset.copy;toast('Mood updated ✨');return;}
 
   // data-action
   const action=e.target.closest('[data-action]')?.dataset.action;if(!action)return;
