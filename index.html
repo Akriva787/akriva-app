@@ -801,8 +801,8 @@ img{display:block}
 
 /* Festive ticker */
 .ticker{background:linear-gradient(90deg,#D4AC6E,#c99c57,#D4AC6E);color:#2b1a00;overflow:hidden}
-.ticker-track{display:flex;width:max-content;white-space:nowrap;animation:tick 16s linear infinite;padding:8px 0}
-.ticker-track span{font-size:12px;font-weight:800;letter-spacing:.3px}
+.ticker-track{display:flex;width:max-content;white-space:nowrap;animation:tick 16s linear infinite;padding:9px 0}
+.ticker-track span{font-size:12.5px;font-weight:800;letter-spacing:.3px}
 @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* Welcome bar */
@@ -1348,6 +1348,9 @@ let cart=[], savedProducts=new Set(), activeCategory='All', selectedProduct=null
 let checkout={step:1,address:null,payment:null};
 window.appliedPromo=0;
 const SHIP=99, FREE_OVER=999;
+// Paste your deployed Google Apps Script Web App URL here (see setup instructions) to enable
+// order logging to Google Sheet + WhatsApp notification. Leave blank to disable.
+const ORDER_WEBHOOK_URL='';
 const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
 let currentUser=store.get('akriva_user',null);
 
@@ -1675,6 +1678,27 @@ function validateAddr(){
   checkout.address={name,phone,address,city,pin};checkout.step=2;renderCheckout();
 }
 
+function sendOrderToWebhook(order){
+  if(!ORDER_WEBHOOK_URL)return;
+  const a=order.address;
+  const payload={
+    orderId:order.id,
+    date:new Date(order.date).toISOString(),
+    name:a.name,phone:a.phone,address:a.address,city:a.city,pin:a.pin,
+    items:order.items.map(i=>`${i.name} x${i.qty}`).join(', '),
+    total:order.total,
+    payment:order.paymentName
+  };
+  try{
+    fetch(ORDER_WEBHOOK_URL,{
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify(payload)
+    }).catch(()=>{});
+  }catch(e){}
+}
+
 function placeOrder(){
   const{total}=cartTotals();
   const orderId='AKR-'+Math.floor(100000+Math.random()*900000);
@@ -1682,6 +1706,7 @@ function placeOrder(){
   const orders=store.get('akriva_orders',[]);orders.unshift(order);store.set('akriva_orders',orders);
   const addrs=store.get('akriva_addresses',[]);const a=checkout.address;
   if(!addrs.some(x=>x.phone===a.phone&&x.address===a.address)){addrs.push(a);store.set('akriva_addresses',addrs);}
+  sendOrderToWebhook(order);
   checkout.step=0;cart=[];window.appliedPromo=0;updateBadge();
   document.getElementById('checkoutContent').innerHTML=`<div class="confirm-box">
     <div class="confirm-mark">✓</div>
